@@ -15,7 +15,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import { Link } from 'react-router'
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
-import RoomCreate from '../../room-create/RoomCreate';
+import Settings from '@mui/icons-material/Settings';
 
 export default function AccountMenu({
     roomCreateOpenHandler,
@@ -71,7 +71,7 @@ export default function AccountMenu({
                             mt: 1.5,
                             overflow: 'visible',
                             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                            backgroundColor: '#FDF0D5',  // Light cream background for the menu
+                            backgroundColor: theme.palette.background.default,
                             '& .MuiAvatar-root': {
                                 width: 32,
                                 height: 32,
@@ -97,9 +97,6 @@ export default function AccountMenu({
                 <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
                     <Avatar sx={{ bgcolor: theme.palette.text.special }} /> Profile
                 </MenuItem>
-                <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
-                    <Avatar sx={{ bgcolor: theme.palette.text.special }} /> My account
-                </MenuItem>
                 <Divider />
                 <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
@@ -120,6 +117,12 @@ export default function AccountMenu({
                         <GroupAddIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
                     </ListItemIcon>
                     Launch room
+                </MenuItem>
+                <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
+                    <ListItemIcon>
+                        <Settings fontSize="small" sx={{ color: theme.palette.text.primary }} />
+                    </ListItemIcon>
+                    Settings
                 </MenuItem>
                 <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>
