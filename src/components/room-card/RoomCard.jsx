@@ -101,7 +101,7 @@ export default function RoomCard() {
                                 boxShadow: 5,
                                 maxWidth: 300,
                                 fontSize: "0.8rem",
-                                zIndex: 10,
+                                zIndex: 3,
                             }}
                         >
                             <Typography variant="body2">

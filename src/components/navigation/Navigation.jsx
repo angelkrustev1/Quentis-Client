@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {
     AppBar,
     Box,
@@ -12,11 +12,14 @@ import RoomsMenu from '../rooms-menu/RoomsMenu';
 import AccountMenu from './account-menu/AccountMenu';
 import { useTheme } from '@emotion/react';
 import { Link } from 'react-router'
+import RoomCreate from '../room-create/RoomCreate';
+import { RoomCreateContext } from '../../contexts/RoomCreateContext';
 
 export default function Navigation() {
     const [roomsOpen, setRoomsOpen] = useState(false);
     const theme = useTheme();
-    
+    const { roomCreateOpen, roomCreateOpenHandler, roomCreateCloseHandler } = useContext(RoomCreateContext)
+
     const roomsToggleHandler = () => {
         setRoomsOpen((prev) => !prev);
     };
@@ -41,19 +44,19 @@ export default function Navigation() {
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: '#ffffff' }}>
-                        <Link to='/'>
-                            Quentis
-                        </Link>
+                            <Link to='/'>
+                                Quentis
+                            </Link>
                         </Typography>
                         {true ? (
-                            <AccountMenu />
+                            <AccountMenu roomCreateOpenHandler={roomCreateOpenHandler}/>
                         ) : (
                             <>
-                                <Button color="#FDF0D5" sx={{bgcolor: theme.palette.text.primary}}>
+                                <Button color="#FDF0D5" sx={{ bgcolor: theme.palette.text.primary }}>
                                     <Link to='/login'>Login</Link>
                                 </Button>
-                                <Button sx={{bgcolor: theme.palette.text.primary}}>
-                                <Link to='/register'>Register</Link>
+                                <Button sx={{ bgcolor: theme.palette.text.primary }}>
+                                    <Link to='/register'>Register</Link>
                                 </Button>
                             </>
                         )}
@@ -65,6 +68,8 @@ export default function Navigation() {
                 onToggle={roomsToggleHandler}
                 onClose={roomsCloseHandler}
             />
+
+            {roomCreateOpen && <RoomCreate onClose={roomCreateCloseHandler}/>}
         </>
     );
 }

@@ -8,10 +8,10 @@ import { Routes, Route } from 'react-router'
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import RoomsPage from "./components/rooms-page/RoomsPage";
+import RoomCreateProvider from "./providers/RoomCreateProvider";
 
 function App() {
 	const theme = useTheme();
-
 	return (
 		<Box sx={{
 			display: 'flex',
@@ -19,17 +19,18 @@ function App() {
 			minHeight: '100vh',
 			bgcolor: theme.palette.background.default,
 		}}>
-			<Navigation />
-
+			<RoomCreateProvider>
+				<Navigation />
+			</RoomCreateProvider>
 			<Container
 				maxWidth="lg"
 				sx={{ flex: 1 }}
 			>
 				<Routes>
-				<Route index element={<Home />} />
-				<Route path='/login' element={<Login />} />
-				<Route path='/register' element={<Register />} />
-				<Route path='/rooms' element={<RoomsPage />} />
+					<Route index element={<Home />} />
+					<Route path='/login' element={<Login />} />
+					<Route path='/register' element={<Register />} />
+					<Route path='/rooms' element={<RoomsPage />} />
 				</Routes>
 			</Container>
 			<Footer />

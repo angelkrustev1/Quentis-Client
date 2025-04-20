@@ -15,14 +15,22 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import { Link } from 'react-router'
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import RoomCreate from '../../room-create/RoomCreate';
 
-export default function AccountMenu() {
+export default function AccountMenu({
+    roomCreateOpenHandler,
+}) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const theme = useTheme();
 
     const handleClick = (event) => setAnchorEl(event.currentTarget);
     const handleClose = () => setAnchorEl(null);
+
+    const roomCreateHandler = () => {
+        roomCreateOpenHandler();
+        setAnchorEl(null)
+    }
 
     return (
         <Fragment>
@@ -107,7 +115,7 @@ export default function AccountMenu() {
                     </ListItemIcon>
                     Enter room
                 </MenuItem>
-                <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
+                <MenuItem onClick={roomCreateHandler} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>
                         <GroupAddIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
                     </ListItemIcon>
