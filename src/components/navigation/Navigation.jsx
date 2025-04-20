@@ -35,7 +35,7 @@ export default function Navigation() {
     return (
         <>
             <Box>
-                <AppBar position="static" sx={{ bgcolor: theme.palette.background.special }}> {/* Navy blue AppBar */}
+                <AppBar position="static" sx={{ bgcolor: theme.palette.background.special }}>
                     <Toolbar>
                         <IconButton
                             onClick={roomsToggleHandler}

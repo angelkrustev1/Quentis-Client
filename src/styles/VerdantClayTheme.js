@@ -3,58 +3,58 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#BC6C25', // was 780000
+      main: '#386641', // Deep Forest Green
     },
     secondary: {
-      main: '#DDA15E', // was C1121F
+      main: '#6A994E', // Leaf Green
     },
     background: {
-      default: '#FEFAE0', // was FDF0D5
-      special: '#283618', // was 003049
+      default: '#F2E8CF', // Soft Beige
+      special: '#A7C957', // Highlight color
     },
     text: {
-      primary: '#283618', // was 003049
-      secondary: '#FEFAE0', // was FDF0D5
-      special: '#606C38', // was 669BBC
+      primary: '#386641', // Dark green for main text
+      secondary: '#6A994E', // Lighter green for secondary text
+      special: '#BC4749', // Rusty red as an accent
     },
     action: {
-      active: '#606C38', // was 669BBC
-      hover: '#DDA15E', // was C1121F
-      selected: '#BC6C25', // was 780000
+      active: '#A7C957', // Lime green for interactive elements
+      hover: '#6A994E',  // Leaf green for hover states
+      selected: '#386641', // Deep green for selected state
     },
     error: {
-      main: '#BC6C25', // was 780000
+      main: '#BC4749', // Rusty Red for errors
     },
     success: {
-      main: '#388E3C', // unchanged
+      main: '#6A994E', // Use leaf green as success
     },
   },
   typography: {
     fontFamily: 'Roboto, Arial, sans-serif',
     h1: {
       fontSize: '2.5rem',
-      color: '#283618', // was 003049
+      color: '#386641',
       '@media (max-width:600px)': {
         fontSize: '2rem',
       },
     },
     h2: {
       fontSize: '2rem',
-      color: '#283618', // was 003049
+      color: '#386641',
       '@media (max-width:600px)': {
         fontSize: '1.75rem',
       },
     },
     h6: {
       fontSize: '1.2rem',
-      color: '#283618', // was 003049
+      color: '#386641',
       '@media (max-width:600px)': {
         fontSize: '1.35rem',
       },
     },
     body1: {
       fontSize: '1rem',
-      color: '#283618', // was 003049
+      color: '#386641',
       '@media (max-width:600px)': {
         fontSize: '0.875rem',
       },
@@ -62,7 +62,7 @@ const theme = createTheme({
     body2: {
       fontSize: '0.9rem',
       fontWeight: 400,
-      color: '#606C38', // was 669BBC
+      color: '#6A994E',
     },
   },
   breakpoints: {
@@ -78,10 +78,10 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          backgroundColor: '#BC6C25', // was 780000
+          backgroundColor: '#386641',
           color: '#FFFFFF',
           '&:hover': {
-            backgroundColor: '#DDA15E', // was C1121F
+            backgroundColor: '#6A994E',
           },
           '@media (max-width:600px)': {
             fontSize: '0.75rem',
@@ -92,9 +92,9 @@ const theme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {
-          color: '#BC6C25', // was 780000
+          color: '#386641',
           '&:hover': {
-            color: '#DDA15E', // was C1121F
+            color: '#6A994E',
           },
         },
       },
@@ -102,7 +102,7 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#283618', // was 003049
+          backgroundColor: '#BC4749', // Rusty Red for strong contrast
           '@media (max-width:600px)': {
             padding: '0 8px',
           },
@@ -112,7 +112,7 @@ const theme = createTheme({
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: '#FEFAE0', // was FDF0D5
+          backgroundColor: '#F2E8CF',
           '@media (max-width:600px)': {
             width: '200px',
           },
@@ -122,16 +122,16 @@ const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         h1: {
-          color: '#283618', // was 003049
+          color: '#386641',
         },
         h2: {
-          color: '#283618', // was 003049
+          color: '#386641',
         },
         body1: {
-          color: '#283618', // was 003049
+          color: '#386641',
         },
         body2: {
-          color: '#606C38', // was 669BBC
+          color: '#6A994E',
         },
       },
     },

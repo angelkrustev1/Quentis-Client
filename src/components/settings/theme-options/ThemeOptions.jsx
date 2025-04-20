@@ -6,9 +6,12 @@ import {
     Fade
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { CustomThemeContext } from '../../../contexts/CustomThemeContext.';
 import crimsonNauticaTheme from '../../../styles/CrimsonNauticaTheme';
 import autumnGroveTheme from '../../../styles/AutumnGroveTheme';
-import { CustomThemeContext } from '../../../contexts/CustomThemeContext.';
+import verdantClayTheme from '../../../styles/VerdantClayTheme';
+import TropicalSorbetTheme from '../../../styles/TropicalSorbetTheme';
+import NeonNauticaTheme from '../../../styles/NeonNauticaTheme';
 
 export default function ThemeOptions() {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -39,6 +42,7 @@ export default function ThemeOptions() {
                 onClick={handleClick}
                 sx={{
                     bgcolor: theme.palette.background.special,
+                    color: theme.palette.background.default,
                     fontSize: '0.9rem',
                     px: 4,
                     py: 0.4,
@@ -71,6 +75,15 @@ export default function ThemeOptions() {
             >
                 <MenuItem onClick={() => chooseThemeHandler(crimsonNauticaTheme)}>
                     Crimson Nautica
+                </MenuItem>
+                <MenuItem onClick={() => chooseThemeHandler(NeonNauticaTheme)}>
+                    Neon Nautica
+                </MenuItem>
+                <MenuItem onClick={() => chooseThemeHandler(TropicalSorbetTheme)}>
+                    Tropical Sorbet
+                </MenuItem>
+                <MenuItem onClick={() => chooseThemeHandler(verdantClayTheme)}>
+                    Verdant Clay
                 </MenuItem>
                 <MenuItem onClick={() => chooseThemeHandler(autumnGroveTheme)}>
                     Autumn Grove

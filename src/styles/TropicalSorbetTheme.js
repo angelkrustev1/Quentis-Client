@@ -1,60 +1,62 @@
+// theme.js or theme.ts
+
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#BC6C25', // was 780000
+      main: '#25CED1', // Aqua Blue
     },
     secondary: {
-      main: '#DDA15E', // was C1121F
+      main: '#FF8A5B', // Coral Orange
     },
     background: {
-      default: '#FEFAE0', // was FDF0D5
-      special: '#283618', // was 003049
+      default: '#FCEADE', // Soft Peach
+      special: '#FFFFFF', // White
     },
     text: {
-      primary: '#283618', // was 003049
-      secondary: '#FEFAE0', // was FDF0D5
-      special: '#606C38', // was 669BBC
+      primary: '#EA526F', // Raspberry
+      secondary: '#FCEADE', // Light Peach
+      special: '#25CED1', // Aqua Blue
     },
     action: {
-      active: '#606C38', // was 669BBC
-      hover: '#DDA15E', // was C1121F
-      selected: '#BC6C25', // was 780000
+      active: '#25CED1', // Aqua
+      hover: '#FF8A5B',  // Coral hover
+      selected: '#EA526F', // Raspberry selected
     },
     error: {
-      main: '#BC6C25', // was 780000
+      main: '#EA526F', // Raspberry for errors
     },
     success: {
-      main: '#388E3C', // unchanged
+      main: '#6FCF97', // A friendly green (optional override)
     },
   },
   typography: {
     fontFamily: 'Roboto, Arial, sans-serif',
     h1: {
       fontSize: '2.5rem',
-      color: '#283618', // was 003049
+      color: '#EA526F', // Raspberry for headers
       '@media (max-width:600px)': {
         fontSize: '2rem',
       },
     },
     h2: {
       fontSize: '2rem',
-      color: '#283618', // was 003049
+      color: '#EA526F',
       '@media (max-width:600px)': {
         fontSize: '1.75rem',
       },
     },
     h6: {
       fontSize: '1.2rem',
-      color: '#283618', // was 003049
+      color: '#EA526F',
       '@media (max-width:600px)': {
         fontSize: '1.35rem',
       },
     },
     body1: {
       fontSize: '1rem',
-      color: '#283618', // was 003049
+      color: '#EA526F',
       '@media (max-width:600px)': {
         fontSize: '0.875rem',
       },
@@ -62,7 +64,7 @@ const theme = createTheme({
     body2: {
       fontSize: '0.9rem',
       fontWeight: 400,
-      color: '#606C38', // was 669BBC
+      color: '#25CED1',
     },
   },
   breakpoints: {
@@ -78,10 +80,10 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          backgroundColor: '#BC6C25', // was 780000
+          backgroundColor: '#25CED1',
           color: '#FFFFFF',
           '&:hover': {
-            backgroundColor: '#DDA15E', // was C1121F
+            backgroundColor: '#FF8A5B',
           },
           '@media (max-width:600px)': {
             fontSize: '0.75rem',
@@ -92,9 +94,9 @@ const theme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {
-          color: '#BC6C25', // was 780000
+          color: '#EA526F',
           '&:hover': {
-            color: '#DDA15E', // was C1121F
+            color: '#FF8A5B',
           },
         },
       },
@@ -102,7 +104,8 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#283618', // was 003049
+          backgroundColor: '#FFFFFF',
+          color: '#25CED1',
           '@media (max-width:600px)': {
             padding: '0 8px',
           },
@@ -112,7 +115,7 @@ const theme = createTheme({
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: '#FEFAE0', // was FDF0D5
+          backgroundColor: '#FCEADE',
           '@media (max-width:600px)': {
             width: '200px',
           },
@@ -122,16 +125,16 @@ const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         h1: {
-          color: '#283618', // was 003049
+          color: '#EA526F',
         },
         h2: {
-          color: '#283618', // was 003049
+          color: '#EA526F',
         },
         body1: {
-          color: '#283618', // was 003049
+          color: '#EA526F',
         },
         body2: {
-          color: '#606C38', // was 669BBC
+          color: '#25CED1',
         },
       },
     },

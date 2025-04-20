@@ -3,58 +3,58 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#BC6C25', // was 780000
+      main: '#011627', // Midnight Navy
     },
     secondary: {
-      main: '#DDA15E', // was C1121F
+      main: '#2EC4B6', // Aqua Mint
     },
     background: {
-      default: '#FEFAE0', // was FDF0D5
-      special: '#283618', // was 003049
+      default: '#FDFFFC', // Near White
+      special: '#011627', // For darker sections or elements
     },
     text: {
-      primary: '#283618', // was 003049
-      secondary: '#FEFAE0', // was FDF0D5
-      special: '#606C38', // was 669BBC
+      primary: '#011627', // Dark text
+      secondary: '#2EC4B6', // Accent text
+      special: '#FF9F1C',  // Highlighted text
     },
     action: {
-      active: '#606C38', // was 669BBC
-      hover: '#DDA15E', // was C1121F
-      selected: '#BC6C25', // was 780000
+      active: '#FF9F1C',   // Sunset Orange
+      hover: '#2EC4B6',
+      selected: '#011627',
     },
     error: {
-      main: '#BC6C25', // was 780000
+      main: '#E71D36', // Vivid Red
     },
     success: {
-      main: '#388E3C', // unchanged
+      main: '#2EC4B6', // Aqua for positive feedback
     },
   },
   typography: {
     fontFamily: 'Roboto, Arial, sans-serif',
     h1: {
       fontSize: '2.5rem',
-      color: '#283618', // was 003049
+      color: '#011627',
       '@media (max-width:600px)': {
         fontSize: '2rem',
       },
     },
     h2: {
       fontSize: '2rem',
-      color: '#283618', // was 003049
+      color: '#011627',
       '@media (max-width:600px)': {
         fontSize: '1.75rem',
       },
     },
     h6: {
       fontSize: '1.2rem',
-      color: '#283618', // was 003049
+      color: '#2EC4B6',
       '@media (max-width:600px)': {
         fontSize: '1.35rem',
       },
     },
     body1: {
       fontSize: '1rem',
-      color: '#283618', // was 003049
+      color: '#011627',
       '@media (max-width:600px)': {
         fontSize: '0.875rem',
       },
@@ -62,7 +62,7 @@ const theme = createTheme({
     body2: {
       fontSize: '0.9rem',
       fontWeight: 400,
-      color: '#606C38', // was 669BBC
+      color: '#FF9F1C',
     },
   },
   breakpoints: {
@@ -78,10 +78,10 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          backgroundColor: '#BC6C25', // was 780000
-          color: '#FFFFFF',
+          backgroundColor: '#011627',
+          color: '#FDFFFC',
           '&:hover': {
-            backgroundColor: '#DDA15E', // was C1121F
+            backgroundColor: '#2EC4B6',
           },
           '@media (max-width:600px)': {
             fontSize: '0.75rem',
@@ -92,9 +92,9 @@ const theme = createTheme({
     MuiLink: {
       styleOverrides: {
         root: {
-          color: '#BC6C25', // was 780000
+          color: '#FF9F1C',
           '&:hover': {
-            color: '#DDA15E', // was C1121F
+            color: '#E71D36',
           },
         },
       },
@@ -102,7 +102,7 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#283618', // was 003049
+          backgroundColor: '#011627',
           '@media (max-width:600px)': {
             padding: '0 8px',
           },
@@ -112,7 +112,7 @@ const theme = createTheme({
     MuiDrawer: {
       styleOverrides: {
         paper: {
-          backgroundColor: '#FEFAE0', // was FDF0D5
+          backgroundColor: '#FDFFFC',
           '@media (max-width:600px)': {
             width: '200px',
           },
@@ -122,16 +122,16 @@ const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         h1: {
-          color: '#283618', // was 003049
+          color: '#011627',
         },
         h2: {
-          color: '#283618', // was 003049
+          color: '#011627',
         },
         body1: {
-          color: '#283618', // was 003049
+          color: '#011627',
         },
         body2: {
-          color: '#606C38', // was 669BBC
+          color: '#FF9F1C',
         },
       },
     },
