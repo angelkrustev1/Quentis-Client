@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import JoinRoomForm from "../join-room-form/JoinRoomForm";
-import { useTheme } from "@emotion/react";
+import { useTheme } from '@mui/material/styles';
 
 export default function Home() {
     const theme = useTheme();

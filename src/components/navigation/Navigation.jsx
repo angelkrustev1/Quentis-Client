@@ -10,15 +10,19 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import RoomsMenu from '../rooms-menu/RoomsMenu';
 import AccountMenu from './account-menu/AccountMenu';
-import { useTheme } from '@emotion/react';
 import { Link } from 'react-router'
 import RoomCreate from '../room-create/RoomCreate';
 import { RoomCreateContext } from '../../contexts/RoomCreateContext';
+import { useTheme } from '@mui/material/styles';
+import { SettignsContext } from '../../contexts/SettingsContext';
+import SettingsForm from '../settings/Settings';
+
 
 export default function Navigation() {
     const [roomsOpen, setRoomsOpen] = useState(false);
     const theme = useTheme();
     const { roomCreateOpen, roomCreateOpenHandler, roomCreateCloseHandler } = useContext(RoomCreateContext)
+    const { settingsOpen, settingsOpenHandler, settingsCloseHandler } = useContext(SettignsContext)
 
     const roomsToggleHandler = () => {
         setRoomsOpen((prev) => !prev);
@@ -49,7 +53,10 @@ export default function Navigation() {
                             </Link>
                         </Typography>
                         {true ? (
-                            <AccountMenu roomCreateOpenHandler={roomCreateOpenHandler}/>
+                            <AccountMenu
+                                roomCreateOpenHandler={roomCreateOpenHandler}
+                                settingsOpenHandler={settingsOpenHandler}
+                            />
                         ) : (
                             <>
                                 <Button color="#FDF0D5" sx={{ bgcolor: theme.palette.text.primary }}>
@@ -69,7 +76,8 @@ export default function Navigation() {
                 onClose={roomsCloseHandler}
             />
 
-            {roomCreateOpen && <RoomCreate onClose={roomCreateCloseHandler}/>}
+            {roomCreateOpen && <RoomCreate onClose={roomCreateCloseHandler} />}
+            {settingsOpen && <SettingsForm onClose={settingsCloseHandler} />}
         </>
     );
 }

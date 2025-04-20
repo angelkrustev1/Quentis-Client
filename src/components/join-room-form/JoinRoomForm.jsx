@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import TagIcon from '@mui/icons-material/Tag';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { useTheme } from "@emotion/react";
+import { useTheme } from '@mui/material/styles';
 
 export default function JoinRoomForm() {
     const isMobile = useMediaQuery('(max-width:600px)');

@@ -19,6 +19,7 @@ import Settings from '@mui/icons-material/Settings';
 
 export default function AccountMenu({
     roomCreateOpenHandler,
+    settingsOpenHandler,
 }) {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
@@ -29,6 +30,11 @@ export default function AccountMenu({
 
     const roomCreateHandler = () => {
         roomCreateOpenHandler();
+        setAnchorEl(null)
+    }
+
+    const settingsHandler = () => {
+        settingsOpenHandler();
         setAnchorEl(null)
     }
 
@@ -118,7 +124,7 @@ export default function AccountMenu({
                     </ListItemIcon>
                     Launch room
                 </MenuItem>
-                <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
+                <MenuItem onClick={settingsHandler} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>
                         <Settings fontSize="small" sx={{ color: theme.palette.text.primary }} />
                     </ListItemIcon>

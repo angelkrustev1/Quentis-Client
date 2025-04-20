@@ -6,13 +6,14 @@ export default function RoomList() {
         <Box
             sx={{
                 display: "flex",
+                flexDirection: "row",
                 flexWrap: "wrap",
                 justifyContent: "space-between",
                 gap: 2,
                 padding: 2,
             }}
         >
-            {Array.from({ length: 10 }).map((_, index) => (
+            {Array.from({ length: 2 }).map((_, index) => (
                 <RoomCard key={index} />
             ))}
         </Box>

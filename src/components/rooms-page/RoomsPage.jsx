@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import RoomCard from "../room-card/RoomCard";
 import Search from "../search/Search";
 import RoomsColection from "../rooms-colection/RoomsColection";
 

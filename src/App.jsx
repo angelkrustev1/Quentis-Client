@@ -9,6 +9,7 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import RoomsPage from "./components/rooms-page/RoomsPage";
 import RoomCreateProvider from "./providers/RoomCreateProvider";
+import SettingsProvider from "./providers/SettingsProvider";
 
 function App() {
 	const theme = useTheme();
@@ -17,11 +18,13 @@ function App() {
 			display: 'flex',
 			flexDirection: 'column',
 			minHeight: '100vh',
-			bgcolor: theme.palette.background.default,
+			bgcolor: theme.palette.background.default || '#fff',
 		}}>
-			<RoomCreateProvider>
-				<Navigation />
-			</RoomCreateProvider>
+			<SettingsProvider>
+				<RoomCreateProvider>
+					<Navigation />
+				</RoomCreateProvider>
+			</SettingsProvider>
 			<Container
 				maxWidth="lg"
 				sx={{ flex: 1 }}
