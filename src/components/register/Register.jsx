@@ -37,7 +37,8 @@ export default function Register() {
                 component="form"
                 sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}
             >
-                <TextField label="Full Name" variant="outlined" fullWidth required />
+                <TextField label="First Name" variant="outlined" fullWidth required />
+                <TextField label="Last Name" variant="outlined" fullWidth required />
                 <TextField label="Email" type="email" variant="outlined" fullWidth required />
                 <TextField label="Password" type="password" variant="outlined" fullWidth required />
                 <TextField label="Confirm Password" type="password" variant="outlined" fullWidth required />
