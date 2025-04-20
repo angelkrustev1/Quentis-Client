@@ -1,0 +1,45 @@
+import { Box, Typography } from "@mui/material";
+import RoomCard from "../room-card/RoomCard";
+import Search from "../search/Search";
+import RoomsColection from "../rooms-colection/RoomsColection";
+
+export default function RoomsPage() {
+    return (
+        <>
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: { xs: "column", sm: "row" },
+                    alignItems: "center",
+                    gap: { xs: 2, sm: 3, md: 4 },
+                    py: 4,
+                    mb: 2,
+                }}
+            >
+                <Typography
+                    sx={{
+                        fontSize: { xs: "1.5rem", sm: "1.75rem", md: "2.15rem" },
+                        fontWeight: 600,
+                        textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
+                    }}
+                >
+                    Joined Rooms
+                </Typography>
+
+                <Box
+                    sx={{
+                        flexGrow: 1,
+                        width: { xs: "100%", sm: "auto" },
+                        maxWidth: { sm: 500 },
+                        display: "flex",
+                    }}
+                >
+                    <Search />
+                </Box>
+            </Box>
+
+
+            <RoomsColection />
+        </>
+    )
+}

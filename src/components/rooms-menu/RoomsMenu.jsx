@@ -1,0 +1,74 @@
+import { useTheme } from '@mui/material/styles';
+import {
+    Box,
+    Drawer,
+    List,
+    Divider,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText
+} from '@mui/material';
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import ForumIcon from '@mui/icons-material/Forum';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import { Link } from 'react-router';
+
+export default function RoomsMenu({
+    open,
+    toggleHander,
+    onClose,
+}) {
+    const theme = useTheme();
+
+    return (
+        <Drawer open={open} onClose={onClose}>
+            <Box
+                sx={{
+                    width: 250,
+                    bgcolor: theme.palette.background.default,
+                    height: '100%',
+                    color: theme.palette.text.primary,
+                }}
+                role="presentation"
+                onClick={onClose}
+            >
+                <List>
+                    <ListItem disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <MenuOpenIcon
+                                    sx={{ color: theme.palette.text.primary }}
+                                />
+                            </ListItemIcon>
+                            <ListItemText
+                                primary={'Close'}
+                            />
+                        </ListItemButton>
+                    </ListItem>
+                    <ListItem disablePadding>
+                        <ListItemButton component={Link} to="/rooms">
+                            <ListItemIcon>
+                                <ForumIcon sx={{ color: theme.palette.text.primary }} />
+                            </ListItemIcon>
+                            <ListItemText primary="Rooms" />
+                        </ListItemButton>
+                    </ListItem>
+                </List>
+                <Divider />
+                <List>
+                    {['All mail', 'Trash', 'Spam'].map((text) => (
+                        <ListItem key={text} disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <ChatBubbleOutlineIcon sx={{ color: theme.palette.text.primary }} />
+                                </ListItemIcon>
+                                <ListItemText primary={text} />
+                            </ListItemButton>
+                        </ListItem>
+                    ))}
+                </List>
+            </Box>
+        </Drawer>
+    );
+}

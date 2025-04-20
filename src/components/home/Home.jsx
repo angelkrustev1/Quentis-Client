@@ -1,0 +1,55 @@
+import { Box, Typography } from "@mui/material";
+import JoinRoomForm from "../join-room-form/JoinRoomForm";
+import { useTheme } from "@emotion/react";
+
+export default function Home() {
+    const theme = useTheme();
+
+    return (
+        <Box
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                gap: '2rem',
+            }}
+        >
+            <JoinRoomForm />
+
+            <Typography
+                variant="h1"
+                sx={{
+                    fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+                    fontWeight: 700,
+                    color: theme.palette.text.primary,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    display: "inline-block",
+                    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                }}
+            >
+                The easiest way to make<br />
+                your meetings interactive
+            </Typography>
+
+            <Typography
+                variant="h6"
+                sx={{
+                    fontSize: { xs: "0.85rem", sm: "1rem", md: "1.35rem" },
+                    fontWeight: 400,
+                    color: theme.palette.primary.main,
+                    textAlign: "center",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    display: "inline-block",
+                    textShadow: "1px 1px 3px rgba(0, 0, 0, 0.3)",
+                }}
+            >
+                Engage your participants with live polls, Q&A, quizzes and word clouds<br />
+                — whether you meet in the office, online or in-between.
+            </Typography>
+        </Box>
+    );
+}
