@@ -11,6 +11,7 @@ import {
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 export default function Register() {
+
     return (
         <Box
             component={Paper}
@@ -31,19 +32,20 @@ export default function Register() {
             </Avatar>
             <Typography variant="h5">Register</Typography>
 
-            <TextField label="Full Name" variant="outlined" fullWidth />
-            <TextField label="Email" type="email" variant="outlined" fullWidth />
-            <TextField label="Password" type="password" variant="outlined" fullWidth />
-            <TextField
-                label="Confirm Password"
-                type="password"
-                variant="outlined"
-                fullWidth
-            />
+            {/* Form starts here */}
+            <Box
+                component="form"
+                sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}
+            >
+                <TextField label="Full Name" variant="outlined" fullWidth required />
+                <TextField label="Email" type="email" variant="outlined" fullWidth required />
+                <TextField label="Password" type="password" variant="outlined" fullWidth required />
+                <TextField label="Confirm Password" type="password" variant="outlined" fullWidth required />
 
-            <Button variant="contained" color="primary" fullWidth>
-                Sign up
-            </Button>
+                <Button type="submit" variant="contained" color="primary" fullWidth>
+                    Sign up
+                </Button>
+            </Box>
 
             <Typography variant="body2" sx={{ mt: 2 }}>
                 Already have an account?{' '}
@@ -54,3 +56,4 @@ export default function Register() {
         </Box>
     );
 }
+
