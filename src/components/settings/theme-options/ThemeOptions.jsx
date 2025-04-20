@@ -1,67 +1,81 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import Fade from '@mui/material/Fade';
+import { useContext, useState } from 'react';
+import {
+    Button,
+    Menu,
+    MenuItem,
+    Fade
+} from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import crimsonNauticaTheme from '../../../styles/CrimsonNauticaTheme';
+import autumnGroveTheme from '../../../styles/AutumnGroveTheme';
+import { CustomThemeContext } from '../../../contexts/CustomThemeContext.';
 
 export default function ThemeOptions() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const theme = useTheme();
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const theme = useTheme();
+    const { changeCustomThemeHandler } = useContext(CustomThemeContext)
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
-  return (
-    <div>
-      <Button
-        id="fade-button"
-        aria-controls={open ? 'fade-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-        sx={{
-          bgcolor: theme.palette.background.special,
-          fontSize: '0.9rem',
-          px: 4,              
-          py: 0.4,        
-          minWidth: '170px',
-          '&:hover': {
-                        backgroundColor: theme.palette.text.special,  // Change to blue on hover
-                        borderColor: theme.palette.text.special,      // Optional: change border color to blue
+    const chooseThemeHandler = (theme) => {
+        setAnchorEl(null);
+        changeCustomThemeHandler(theme) // this here 
+    }
+
+    return (
+        <div>
+            <Button
+                id="fade-button"
+                aria-controls={open ? 'fade-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}
+                sx={{
+                    bgcolor: theme.palette.background.special,
+                    fontSize: '0.9rem',
+                    px: 4,
+                    py: 0.4,
+                    minWidth: '170px',
+                    '&:hover': {
+                        backgroundColor: theme.palette.text.special,
+                        borderColor: theme.palette.text.special,
                     },
-        }}
-        variant="outlined"
-      >
-        Theme
-      </Button>
+                }}
+                variant="outlined"
+            >
+                Theme
+            </Button>
 
-      <Menu
-        id="fade-menu"
-        MenuListProps={{
-          'aria-labelledby': 'fade-button',
-        }}
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Fade}
-        PaperProps={{
-          sx: {
-            width: 200,       // Same width for both menus
-            maxHeight: 250,   // Same height for both menus
-          },
-        }}
-      >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu>
-    </div>
-  );
+            <Menu
+                id="fade-menu"
+                MenuListProps={{
+                    'aria-labelledby': 'fade-button',
+                }}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                TransitionComponent={Fade}
+                PaperProps={{
+                    sx: {
+                        width: 200,
+                        maxHeight: 250,
+                    },
+                }}
+            >
+                <MenuItem onClick={() => chooseThemeHandler(crimsonNauticaTheme)}>
+                    Crimson Nautica
+                </MenuItem>
+                <MenuItem onClick={() => chooseThemeHandler(autumnGroveTheme)}>
+                    Autumn Grove
+                </MenuItem>
+            </Menu>
+        </div>
+    );
 }

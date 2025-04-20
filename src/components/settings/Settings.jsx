@@ -93,7 +93,7 @@ export default function Settings({
                     </Box>
 
                     <Button type="submit" variant="contained" color="primary">
-                        Save
+                        Reset
                     </Button>
                 </Box>
             </Paper>
