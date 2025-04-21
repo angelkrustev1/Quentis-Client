@@ -11,36 +11,39 @@ import RoomsPage from "./components/rooms-page/RoomsPage";
 import RoomCreateProvider from "./providers/RoomCreateProvider";
 import SettingsProvider from "./providers/SettingsProvider";
 import EnterRoomProvider from "./providers/EnterRoomProvider";
+import LanguageProvider from "./providers/LanguageProvider";
 
 function App() {
 	const theme = useTheme();
 	return (
-		<Box sx={{
-			display: 'flex',
-			flexDirection: 'column',
-			minHeight: '100vh',
-			bgcolor: theme.palette.background.default || '#fff',
-		}}>
-			<SettingsProvider>
-				<EnterRoomProvider>
-					<RoomCreateProvider>
-						<Navigation />
-					</RoomCreateProvider>
-				</EnterRoomProvider>
-			</SettingsProvider>
-			<Container
-				maxWidth="lg"
-				sx={{ flex: 1 }}
-			>
-				<Routes>
-					<Route index element={<Home />} />
-					<Route path='/login' element={<Login />} />
-					<Route path='/register' element={<Register />} />
-					<Route path='/rooms' element={<RoomsPage />} />
-				</Routes>
-			</Container>
-			<Footer />
-		</Box>
+		<LanguageProvider>
+			<Box sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				minHeight: '100vh',
+				bgcolor: theme.palette.background.default || '#fff',
+			}}>
+				<SettingsProvider>
+					<EnterRoomProvider>
+						<RoomCreateProvider>
+							<Navigation />
+						</RoomCreateProvider>
+					</EnterRoomProvider>
+				</SettingsProvider>
+				<Container
+					maxWidth="lg"
+					sx={{ flex: 1 }}
+				>
+					<Routes>
+						<Route index element={<Home />} />
+						<Route path='/login' element={<Login />} />
+						<Route path='/register' element={<Register />} />
+						<Route path='/rooms' element={<RoomsPage />} />
+					</Routes>
+				</Container>
+				<Footer />
+			</Box>
+		</LanguageProvider>
 	);
 }
 

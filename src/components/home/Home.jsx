@@ -1,9 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import JoinRoomForm from "../join-room-form/JoinRoomForm";
 import { useTheme } from '@mui/material/styles';
+import useTranslateText from "../../hooks/useTranslationText";
 
 export default function Home() {
     const theme = useTheme();
+    const translation = useTranslateText();
 
     return (
         <Box
@@ -30,8 +32,8 @@ export default function Home() {
                     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
                 }}
             >
-                The easiest way to make<br />
-                your meetings interactive
+                {translation.homeTitlePartOne}<br />
+                {translation.homeTitlePartTwo}
             </Typography>
 
             <Typography
