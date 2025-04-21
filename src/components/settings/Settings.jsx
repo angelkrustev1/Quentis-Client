@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
     Box,
     Paper,
@@ -12,16 +12,25 @@ import CloseIcon from '@mui/icons-material/Close';
 import ThemeOptions from './theme-options/ThemeOptions';
 import LanguageOptions from './language-options/LanguageOptions';
 import useTranslateText from '../../hooks/useTranslationText';
+import { CustomThemeContext } from '../../contexts/CustomThemeContext.';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 export default function Settings({
     onClose
 }) {
     const translation = useTranslateText();
+    const { resetDefaultTheme } = useContext(CustomThemeContext)
+    const { languageResetDefaultHandler } = useContext(LanguageContext)
 
     const handleSubmit = (e) => {
         e.preventDefault();
         onClose();
     };
+
+    const resetHandler = () => {
+        resetDefaultTheme();
+        languageResetDefaultHandler();
+    }
 
     return (
         <Box
@@ -73,8 +82,6 @@ export default function Settings({
                 </Typography>
 
                 <Box
-                    component="form"
-                    onSubmit={handleSubmit}
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -95,7 +102,7 @@ export default function Settings({
                         <LanguageOptions />
                     </Box>
 
-                    <Button type="submit" variant="contained" color="primary">
+                    <Button variant="contained" color="primary" onClick={resetHandler}>
                         {translation.reset}
                     </Button>
                 </Box>
