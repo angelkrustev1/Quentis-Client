@@ -49,8 +49,8 @@ export default function Home() {
                     textShadow: "1px 1px 3px rgba(0, 0, 0, 0.3)",
                 }}
             >
-                Engage your participants with live polls, Q&A, quizzes and word clouds<br />
-                — whether you meet in the office, online or in-between.
+                {translation.homeSubTitlePartOne}<br />
+                {translation.homeSubTitlePartTwo}
             </Typography>
         </Box>
     );

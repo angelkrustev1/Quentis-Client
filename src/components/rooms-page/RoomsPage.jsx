@@ -1,8 +1,11 @@
 import { Box, Typography } from "@mui/material";
 import Search from "../search/Search";
 import RoomsColection from "../rooms-colection/RoomsColection";
+import useTranslateText from "../../hooks/useTranslationText";
 
 export default function RoomsPage() {
+    const translation = useTranslateText();
+
     return (
         <>
             <Box
@@ -22,7 +25,7 @@ export default function RoomsPage() {
                         textShadow: "2px 2px 4px rgba(0, 0, 0, 0.4)",
                     }}
                 >
-                    Joined Rooms
+                    {translation.roomsPageText}
                 </Typography>
 
                 <Box

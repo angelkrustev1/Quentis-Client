@@ -1,8 +1,7 @@
+import { englishTranslation } from "./English";
+
 const translations = {
-    'en': {
-        homeTitlePartOne: 'The easiest way to make',
-        homeTitlePartTwo: 'your meetings interactive',
-    }
+    'en': englishTranslation,
 }
 
 export default translations;

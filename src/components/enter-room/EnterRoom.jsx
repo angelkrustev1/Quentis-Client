@@ -1,10 +1,13 @@
 import { Avatar, Box, Button, IconButton, Paper, TextField, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import useTranslateText from "../../hooks/useTranslationText";
 
 export default function EnterRoom({
     onClose,
 }) {
+    const translation = useTranslateText();
+
     return (
         <Box
             onClick={onClose}
@@ -50,7 +53,7 @@ export default function EnterRoom({
                 <Avatar sx={{ bgcolor: "primary.main" }}>
                     <MeetingRoomIcon />
                 </Avatar>
-                <Typography variant="h5">Enter Room</Typography>
+                <Typography variant="h5">{translation.enterRoom}</Typography>
 
                 <Box
                     component='form'
@@ -69,8 +72,8 @@ export default function EnterRoom({
                     />
 
                     <Button
-                     type="submit" variant="contained" color="primary" fullWidth>
-                        Join
+                        type="submit" variant="contained" color="primary" fullWidth>
+                        {translation.join}
                     </Button>
                 </Box>
             </Paper>

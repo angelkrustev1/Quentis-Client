@@ -18,11 +18,13 @@ import { SettignsContext } from '../../contexts/SettingsContext';
 import SettingsForm from '../settings/Settings';
 import { EnterRoomContext } from '../../contexts/EnterRoomContext';
 import EnterRoom from '../enter-room/EnterRoom';
+import useTranslateText from '../../hooks/useTranslationText';
 
 
 export default function Navigation() {
     const [roomsOpen, setRoomsOpen] = useState(false);
     const theme = useTheme();
+    const translation = useTranslateText();
     const { roomCreateOpen, roomCreateOpenHandler, roomCreateCloseHandler } = useContext(RoomCreateContext)
     const { settingsOpen, settingsOpenHandler, settingsCloseHandler } = useContext(SettignsContext)
     const { enterRoomOpen, enterRoomOpenHandler, enterRoomCloseHandler } = useContext(EnterRoomContext)
@@ -63,11 +65,11 @@ export default function Navigation() {
                             />
                         ) : (
                             <>
-                                <Button color="#FDF0D5" sx={{ bgcolor: theme.palette.text.primary }}>
-                                    <Link to='/login'>Login</Link>
+                                <Button color="#ffffff" sx={{ bgcolor: theme.palette.text.primary }}>
+                                    <Link to='/login'>{translation.login}</Link>
                                 </Button>
-                                <Button sx={{ bgcolor: theme.palette.text.primary }}>
-                                    <Link to='/register'>Register</Link>
+                                <Button color="#ffffff" sx={{ bgcolor: theme.palette.text.primary }}>
+                                    <Link to='/register'>{translation.register}</Link>
                                 </Button>
                             </>
                         )}

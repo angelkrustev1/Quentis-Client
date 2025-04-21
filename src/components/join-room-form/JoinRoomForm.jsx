@@ -9,10 +9,12 @@ import {
 import TagIcon from '@mui/icons-material/Tag';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useTheme } from '@mui/material/styles';
+import useTranslateText from "../../hooks/useTranslationText";
 
 export default function JoinRoomForm() {
     const isMobile = useMediaQuery('(max-width:600px)');
     const theme = useTheme();
+    const translation = useTranslateText();
 
     return (
         <Box
@@ -42,7 +44,7 @@ export default function JoinRoomForm() {
                     fontSize: isMobile ? '1.2rem' : '1.4rem',
                 }}
             >
-                Joining as a participant?
+                {translation.joinRoomFormText}
             </Typography>
 
             <Box
@@ -51,7 +53,7 @@ export default function JoinRoomForm() {
                     display: "flex",
                     alignItems: "center",
                     borderRadius: "999px",
-                    bgcolor: '#FDF0D5', // Light cream background for input
+                    bgcolor: theme.palette.background.default,
                     boxShadow: 2,
                     flexGrow: 1,
                     maxWidth: 300,
@@ -63,35 +65,35 @@ export default function JoinRoomForm() {
             >
                 <TextField
                     fullWidth
-                    placeholder="Enter Code Here"
+                    placeholder={translation.joinRoomFormPlaceholder}
                     size="small"
                     variant="outlined"
                     sx={{
                         "& .MuiOutlinedInput-root": {
                             borderRadius: "999px",
                             pl: 1,
-                            bgcolor: '#FDF0D5',
+                            bgcolor: theme.palette.background.default,
                             color: '#78000',
                             "& fieldset": {
-                                borderColor: '#78000',
+                                borderColor: theme.palette.primary.main,
                             },
                             "&:hover fieldset": {
-                                borderColor: '#78000', // crimson on hover
+                                borderColor: theme.palette.primary.main,
                             },
                             "&.Mui-focused fieldset": {
-                                borderColor: '#78000', // crimson when focused
+                                borderColor: theme.palette.primary.main,
                             },
                         },
                     }}
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
-                                <TagIcon sx={{ color: '#003049' }} />
+                                <TagIcon sx={{ color: theme.palette.text.primary }} />
                             </InputAdornment>
                         ),
                         endAdornment: (
                             <InputAdornment position="end">
-                                <IconButton type="submit" sx={{ color: '#003049' }}>
+                                <IconButton type="submit" sx={{ color: theme.palette.text.primary }}>
                                     <ArrowForwardIcon />
                                 </IconButton>
                             </InputAdornment>

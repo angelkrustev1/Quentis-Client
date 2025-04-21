@@ -1,16 +1,19 @@
 import React from 'react';
 import {
-  TextField,
-  Button,
-  Box,
-  Typography,
-  Paper,
-  Avatar,
-  Link,
+    TextField,
+    Button,
+    Box,
+    Typography,
+    Paper,
+    Avatar,
+    Link,
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import useTranslateText from '../../hooks/useTranslationText';
 
 export default function LoginForm() {
+    const translation = useTranslateText();
+
     return (
         <Box
             component={Paper}
@@ -29,21 +32,21 @@ export default function LoginForm() {
             <Avatar sx={{ bgcolor: 'primary.main' }}>
                 <LockOutlinedIcon />
             </Avatar>
-            <Typography variant="h5">Login</Typography>
+            <Typography variant="h5">{translation.login}</Typography>
 
             <Box component="form" sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 2 }}>
                 <TextField label="Email" variant="outlined" fullWidth required />
                 <TextField label="Password" type="password" variant="outlined" fullWidth required />
 
                 <Button type="submit" variant="contained" color="primary" fullWidth>
-                    Sign In
+                    {translation.signIn}
                 </Button>
             </Box>
 
             <Typography variant="body2" sx={{ mt: 2 }}>
                 Don't have an account?{' '}
                 <Link href="/register" underline="hover">
-                    Sign up here
+                    {translation.signUpHere}
                 </Link>
             </Typography>
         </Box>

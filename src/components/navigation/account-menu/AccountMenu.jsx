@@ -16,6 +16,7 @@ import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import { Link } from 'react-router'
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import Settings from '@mui/icons-material/Settings';
+import useTranslateText from '../../../hooks/useTranslationText';
 
 export default function AccountMenu({
     enterRoomOpenHandler,
@@ -25,6 +26,7 @@ export default function AccountMenu({
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const theme = useTheme();
+    const translate = useTranslateText();
 
     const handleClick = (event) => setAnchorEl(event.currentTarget);
     const handleClose = () => setAnchorEl(null);
@@ -108,27 +110,27 @@ export default function AccountMenu({
             >
                 <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
                     <Avatar sx={{ bgcolor: theme.palette.text.special }} />
-                    Profile
+                    {translate.profile}
                 </MenuItem>
                 <Divider />
                 <MenuItem onClick={roomOpenHandler} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>
                         <MeetingRoomIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
                     </ListItemIcon>
-                    Enter room
+                    {translate.accMenuEnterRoom}
                 </MenuItem>
                 <MenuItem onClick={roomCreateHandler} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>
                         <GroupAddIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
                     </ListItemIcon>
-                    Launch room
+                    {translate.accMenuLaunchRoom}
                 </MenuItem>
                 <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
                         <ListItemIcon>
                             <PersonAddIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
                         </ListItemIcon>
-                        Add another account
+                        {translate.accMenuAddAnotherAccount}
                     </MenuItem>
                 </Link>
                 <Divider />
@@ -136,13 +138,13 @@ export default function AccountMenu({
                     <ListItemIcon>
                         <Settings fontSize="small" sx={{ color: theme.palette.text.primary }} />
                     </ListItemIcon>
-                    Settings
+                    {translate.settings}
                 </MenuItem>
                 <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>
                         <LogoutIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
                     </ListItemIcon>
-                    Logout
+                    {translate.logout}
                 </MenuItem>
             </Menu>
         </Fragment>

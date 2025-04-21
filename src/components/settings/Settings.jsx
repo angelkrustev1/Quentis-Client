@@ -11,10 +11,13 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import CloseIcon from '@mui/icons-material/Close';
 import ThemeOptions from './theme-options/ThemeOptions';
 import LanguageOptions from './language-options/LanguageOptions';
+import useTranslateText from '../../hooks/useTranslationText';
 
 export default function Settings({
     onClose
 }) {
+    const translation = useTranslateText();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         onClose();
@@ -66,7 +69,7 @@ export default function Settings({
                 </Avatar>
 
                 <Typography variant="h5" component="h1" fontWeight={600}>
-                    Settings
+                    {translation.settings}
                 </Typography>
 
                 <Box
@@ -93,7 +96,7 @@ export default function Settings({
                     </Box>
 
                     <Button type="submit" variant="contained" color="primary">
-                        Reset
+                        {translation.reset}
                     </Button>
                 </Box>
             </Paper>

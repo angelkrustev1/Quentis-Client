@@ -13,6 +13,7 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import ForumIcon from '@mui/icons-material/Forum';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import { Link } from 'react-router';
+import useTranslateText from '../../hooks/useTranslationText';
 
 export default function RoomsMenu({
     open,
@@ -20,6 +21,7 @@ export default function RoomsMenu({
     onClose,
 }) {
     const theme = useTheme();
+    const translation = useTranslateText();
 
     return (
         <Drawer open={open} onClose={onClose}>
@@ -41,9 +43,7 @@ export default function RoomsMenu({
                                     sx={{ color: theme.palette.text.primary }}
                                 />
                             </ListItemIcon>
-                            <ListItemText
-                                primary={'Close'}
-                            />
+                            <ListItemText primary={translation.roomsMenuClose}/>
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
@@ -51,7 +51,7 @@ export default function RoomsMenu({
                             <ListItemIcon>
                                 <ForumIcon sx={{ color: theme.palette.text.primary }} />
                             </ListItemIcon>
-                            <ListItemText primary="Rooms" />
+                            <ListItemText primary={translation.roomsMenuRooms} />
                         </ListItemButton>
                     </ListItem>
                 </List>

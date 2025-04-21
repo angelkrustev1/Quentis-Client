@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useTransition } from 'react';
 import { Box, Typography, Container } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import useTranslateText from '../../hooks/useTranslationText';
 
 export default function Footer() {
   const theme = useTheme();
+  const translation = useTranslateText();
 
   return (
     <Box
@@ -19,7 +21,7 @@ export default function Footer() {
     >
       <Container maxWidth="lg">
         <Typography variant="body2">
-          © {new Date().getFullYear()} Quentis. All Rights Reserved.
+          © {new Date().getFullYear()} {translation.footer}
         </Typography>
       </Container>
     </Box>

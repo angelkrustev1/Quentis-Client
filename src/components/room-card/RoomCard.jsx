@@ -3,10 +3,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CodeIcon from "@mui/icons-material/Code";
 import { useState } from "react";
+import useTranslateText from "../../hooks/useTranslationText";
 
 export default function RoomCard() {
     const [showCode, setShowCode] = useState(false);
     const [copied, setCopied] = useState(false)
+    const translation = useTranslateText();
 
     const showCodeHander = () => setShowCode(true)
     const closeCodeHander = () => setShowCode(false)
@@ -130,7 +132,7 @@ export default function RoomCard() {
                             padding: "4px 12px",
                         }}
                     >
-                        Join
+                        {translation.join}
                     </Button>
                 </Box>
             </Box>

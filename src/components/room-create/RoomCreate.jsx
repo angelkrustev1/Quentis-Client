@@ -9,10 +9,13 @@ import {
 } from "@mui/material";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import CloseIcon from "@mui/icons-material/Close";
+import useTranslateText from "../../hooks/useTranslationText";
 
 export default function RoomCreate({
     onClose,
 }) {
+    const translation = useTranslateText();
+
     return (
         <Box
             onClick={onClose}
@@ -64,7 +67,7 @@ export default function RoomCreate({
                     <Avatar sx={{ bgcolor: "primary.main" }}>
                         <GroupAddIcon />
                     </Avatar>
-                    <Typography variant="h5">Launch Room</Typography>
+                    <Typography variant="h5">{translation.launchRoom}</Typography>
 
                     <Box
                         component="form"
@@ -89,7 +92,7 @@ export default function RoomCreate({
                         />
 
                         <Button type="submit" variant="contained" color="primary" fullWidth>
-                            Create
+                            {translation.create}
                         </Button>
                     </Box>
                 </Paper>

@@ -1,9 +1,11 @@
 import { TextField, alpha, IconButton, Paper } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useTheme } from '@mui/material/styles';
+import useTranslateText from "../../hooks/useTranslationText";
 
 export default function Search() {
     const theme = useTheme();
+    const translation = useTranslateText();
 
     return (
         <Paper
@@ -24,7 +26,7 @@ export default function Search() {
                 <SearchIcon sx={{ color: theme.palette.text.primary }} />
             </IconButton>
             <TextField
-                placeholder="Search..."
+                placeholder={translation.searchPlaceholder}
                 fullWidth
                 size="small"
                 sx={{

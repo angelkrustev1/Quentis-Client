@@ -9,8 +9,10 @@ import {
     Link,
 } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import useTranslateText from '../../hooks/useTranslationText';
 
 export default function Register() {
+    const translation = useTranslateText();
 
     return (
         <Box
@@ -30,7 +32,7 @@ export default function Register() {
             <Avatar sx={{ bgcolor: 'primary.main' }}>
                 <PersonAddIcon />
             </Avatar>
-            <Typography variant="h5">Register</Typography>
+            <Typography variant="h5">{translation.register}</Typography>
 
             {/* Form starts here */}
             <Box
@@ -44,14 +46,14 @@ export default function Register() {
                 <TextField label="Confirm Password" type="password" variant="outlined" fullWidth required />
 
                 <Button type="submit" variant="contained" color="primary" fullWidth>
-                    Sign up
+                    {translation.signUp}
                 </Button>
             </Box>
 
             <Typography variant="body2" sx={{ mt: 2 }}>
                 Already have an account?{' '}
                 <Link href="/login" underline="hover">
-                    Sign in here
+                    {translation.signInHere}
                 </Link>
             </Typography>
         </Box>

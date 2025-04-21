@@ -12,11 +12,13 @@ import autumnGroveTheme from '../../../styles/AutumnGroveTheme';
 import verdantClayTheme from '../../../styles/VerdantClayTheme';
 import TropicalSorbetTheme from '../../../styles/TropicalSorbetTheme';
 import NeonNauticaTheme from '../../../styles/NeonNauticaTheme';
+import useTranslateText from '../../../hooks/useTranslationText';
 
 export default function ThemeOptions() {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const theme = useTheme();
+    const translation = useTranslateText();
     const { changeCustomThemeHandler } = useContext(CustomThemeContext)
 
     const handleClick = (event) => {
@@ -54,7 +56,7 @@ export default function ThemeOptions() {
                 }}
                 variant="outlined"
             >
-                Theme
+                {translation.theme}
             </Button>
 
             <Menu
@@ -74,19 +76,19 @@ export default function ThemeOptions() {
                 }}
             >
                 <MenuItem onClick={() => chooseThemeHandler(crimsonNauticaTheme)}>
-                    Crimson Nautica
+                    {translation.crimsonNautica}
                 </MenuItem>
                 <MenuItem onClick={() => chooseThemeHandler(NeonNauticaTheme)}>
-                    Neon Nautica
+                    {translation.neonNautica}
                 </MenuItem>
                 <MenuItem onClick={() => chooseThemeHandler(TropicalSorbetTheme)}>
-                    Tropical Sorbet
+                    {translation.tropicalSorbet}
                 </MenuItem>
                 <MenuItem onClick={() => chooseThemeHandler(verdantClayTheme)}>
-                    Verdant Clay
+                    {translation.verdantClay}
                 </MenuItem>
                 <MenuItem onClick={() => chooseThemeHandler(autumnGroveTheme)}>
-                    Autumn Grove
+                    {translation.autumnGrove}
                 </MenuItem>
             </Menu>
         </div>
