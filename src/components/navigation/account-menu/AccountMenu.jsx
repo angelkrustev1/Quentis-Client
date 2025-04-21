@@ -107,17 +107,10 @@ export default function AccountMenu({
                 }}
             >
                 <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
-                    <Avatar sx={{ bgcolor: theme.palette.text.special }} /> Profile
+                    <Avatar sx={{ bgcolor: theme.palette.text.special }} />
+                    Profile
                 </MenuItem>
                 <Divider />
-                <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
-                        <ListItemIcon>
-                            <PersonAddIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
-                        </ListItemIcon>
-                        Add another account
-                    </MenuItem>
-                </Link>
                 <MenuItem onClick={roomOpenHandler} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>
                         <MeetingRoomIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
@@ -130,6 +123,15 @@ export default function AccountMenu({
                     </ListItemIcon>
                     Launch room
                 </MenuItem>
+                <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
+                        <ListItemIcon>
+                            <PersonAddIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
+                        </ListItemIcon>
+                        Add another account
+                    </MenuItem>
+                </Link>
+                <Divider />
                 <MenuItem onClick={settingsHandler} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>
                         <Settings fontSize="small" sx={{ color: theme.palette.text.primary }} />
