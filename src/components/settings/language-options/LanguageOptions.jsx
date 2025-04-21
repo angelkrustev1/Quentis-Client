@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import {
     Button,
     Menu,
@@ -7,12 +7,14 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import useTranslateText from '../../../hooks/useTranslationText';
+import { LanguageContext } from '../../../contexts/LanguageContext';
 
 export default function LanguageOptions() {
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const theme = useTheme();
     const translation = useTranslateText();
+    const { language, languageChangeHandler } = useContext(LanguageContext)
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -21,6 +23,11 @@ export default function LanguageOptions() {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const changeLanguageHandler = (language) => {
+        languageChangeHandler(language)
+        setAnchorEl(null)
+    }
 
     return (
         <div>
@@ -62,9 +69,9 @@ export default function LanguageOptions() {
                     },
                 }}
             >
-                <MenuItem onClick={handleClose}>{translation.english}</MenuItem>
-                <MenuItem onClick={handleClose}>{translation.spanish}</MenuItem>
-                <MenuItem onClick={handleClose}>{translation.bulgarian}</MenuItem>
+                <MenuItem onClick={() => changeLanguageHandler('en')}>{translation.english}</MenuItem>
+                <MenuItem onClick={() => changeLanguageHandler('bg')}>{translation.bulgarian}</MenuItem>
+                <MenuItem onClick={() => changeLanguageHandler('es')}>{translation.spanish}</MenuItem>
             </Menu>
         </div>
     );
