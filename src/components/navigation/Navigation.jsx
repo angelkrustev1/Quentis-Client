@@ -16,6 +16,8 @@ import { RoomCreateContext } from '../../contexts/RoomCreateContext';
 import { useTheme } from '@mui/material/styles';
 import { SettignsContext } from '../../contexts/SettingsContext';
 import SettingsForm from '../settings/Settings';
+import { EnterRoomContext } from '../../contexts/EnterRoomContext';
+import EnterRoom from '../enter-room/EnterRoom';
 
 
 export default function Navigation() {
@@ -23,6 +25,7 @@ export default function Navigation() {
     const theme = useTheme();
     const { roomCreateOpen, roomCreateOpenHandler, roomCreateCloseHandler } = useContext(RoomCreateContext)
     const { settingsOpen, settingsOpenHandler, settingsCloseHandler } = useContext(SettignsContext)
+    const { enterRoomOpen, enterRoomOpenHandler, enterRoomCloseHandler } = useContext(EnterRoomContext)
 
     const roomsToggleHandler = () => {
         setRoomsOpen((prev) => !prev);
@@ -54,6 +57,7 @@ export default function Navigation() {
                         </Typography>
                         {true ? (
                             <AccountMenu
+                                enterRoomOpenHandler={enterRoomOpenHandler}
                                 roomCreateOpenHandler={roomCreateOpenHandler}
                                 settingsOpenHandler={settingsOpenHandler}
                             />
@@ -76,6 +80,7 @@ export default function Navigation() {
                 onClose={roomsCloseHandler}
             />
 
+            {enterRoomOpen && <EnterRoom onClose={enterRoomCloseHandler} />}
             {roomCreateOpen && <RoomCreate onClose={roomCreateCloseHandler} />}
             {settingsOpen && <SettingsForm onClose={settingsCloseHandler} />}
         </>

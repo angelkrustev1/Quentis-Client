@@ -18,6 +18,7 @@ import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import Settings from '@mui/icons-material/Settings';
 
 export default function AccountMenu({
+    enterRoomOpenHandler,
     roomCreateOpenHandler,
     settingsOpenHandler,
 }) {
@@ -28,14 +29,19 @@ export default function AccountMenu({
     const handleClick = (event) => setAnchorEl(event.currentTarget);
     const handleClose = () => setAnchorEl(null);
 
+    const roomOpenHandler = () => {
+        enterRoomOpenHandler();
+        setAnchorEl(null);
+    }
+
     const roomCreateHandler = () => {
         roomCreateOpenHandler();
-        setAnchorEl(null)
+        setAnchorEl(null);
     }
 
     const settingsHandler = () => {
         settingsOpenHandler();
-        setAnchorEl(null)
+        setAnchorEl(null);
     }
 
     return (
@@ -112,7 +118,7 @@ export default function AccountMenu({
                         Add another account
                     </MenuItem>
                 </Link>
-                <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
+                <MenuItem onClick={roomOpenHandler} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>
                         <MeetingRoomIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
                     </ListItemIcon>

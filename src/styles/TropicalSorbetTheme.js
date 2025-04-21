@@ -11,38 +11,38 @@ const theme = createTheme({
       main: '#FF8A5B', // Coral Orange
     },
     background: {
-      default: '#FCEADE', // Soft Peach
-      special: '#FFFFFF', // White
+      default: '#FCEADE',     // Soft Peach as main background
+      special: '#FF8A5B',     // Coral used for highlights or accents
     },
     text: {
-      primary: '#EA526F', // Raspberry
-      secondary: '#FCEADE', // Light Peach
-      special: '#25CED1', // Aqua Blue
+      primary: '#011627',     // Deep Navy (replaces white for contrast)
+      secondary: '#EA526F',   // Raspberry for soft content
+      special: '#25CED1',     // Aqua Blue for highlights
     },
     action: {
-      active: '#25CED1', // Aqua
-      hover: '#FF8A5B',  // Coral hover
-      selected: '#EA526F', // Raspberry selected
+      active: '#25CED1',      // Aqua
+      hover: '#FF8A5B',       // Coral hover
+      selected: '#EA526F',    // Raspberry selected
     },
     error: {
-      main: '#EA526F', // Raspberry for errors
+      main: '#EA526F',        // Raspberry for errors
     },
     success: {
-      main: '#6FCF97', // A friendly green (optional override)
+      main: '#6FCF97',        // A friendly green
     },
   },
   typography: {
     fontFamily: 'Roboto, Arial, sans-serif',
     h1: {
       fontSize: '2.5rem',
-      color: '#EA526F', // Raspberry for headers
+      color: '#011627', // Strong header contrast
       '@media (max-width:600px)': {
         fontSize: '2rem',
       },
     },
     h2: {
       fontSize: '2rem',
-      color: '#EA526F',
+      color: '#011627',
       '@media (max-width:600px)': {
         fontSize: '1.75rem',
       },
@@ -56,7 +56,7 @@ const theme = createTheme({
     },
     body1: {
       fontSize: '1rem',
-      color: '#EA526F',
+      color: '#011627',
       '@media (max-width:600px)': {
         fontSize: '0.875rem',
       },
@@ -81,7 +81,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: '#25CED1',
-          color: '#FFFFFF',
+          color: '#011627',
           '&:hover': {
             backgroundColor: '#FF8A5B',
           },
@@ -104,8 +104,8 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: '#FFFFFF',
-          color: '#25CED1',
+          backgroundColor: '#25CED1',
+          color: '#011627',
           '@media (max-width:600px)': {
             padding: '0 8px',
           },
@@ -125,13 +125,13 @@ const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         h1: {
-          color: '#EA526F',
+          color: '#011627',
         },
         h2: {
-          color: '#EA526F',
+          color: '#011627',
         },
         body1: {
-          color: '#EA526F',
+          color: '#011627',
         },
         body2: {
           color: '#25CED1',

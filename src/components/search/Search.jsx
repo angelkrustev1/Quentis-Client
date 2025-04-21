@@ -13,7 +13,7 @@ export default function Search() {
                 flexDirection: "row",
                 alignItems: "center",
                 width: "100%",
-                maxWidth: { xs: "100%", sm: 300 },
+                maxWidth: { xs: "100%", sm: 340 },
                 bgcolor: alpha(theme.palette.primary.main, 0.4),
                 borderRadius: 1,
                 px: 1,

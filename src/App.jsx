@@ -10,6 +10,7 @@ import Register from "./components/register/Register";
 import RoomsPage from "./components/rooms-page/RoomsPage";
 import RoomCreateProvider from "./providers/RoomCreateProvider";
 import SettingsProvider from "./providers/SettingsProvider";
+import EnterRoomProvider from "./providers/EnterRoomProvider";
 
 function App() {
 	const theme = useTheme();
@@ -21,9 +22,11 @@ function App() {
 			bgcolor: theme.palette.background.default || '#fff',
 		}}>
 			<SettingsProvider>
-				<RoomCreateProvider>
-					<Navigation />
-				</RoomCreateProvider>
+				<EnterRoomProvider>
+					<RoomCreateProvider>
+						<Navigation />
+					</RoomCreateProvider>
+				</EnterRoomProvider>
 			</SettingsProvider>
 			<Container
 				maxWidth="lg"
