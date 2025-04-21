@@ -31,6 +31,8 @@ export const bulgarianTranslation = {
     english: 'Английски',
     spanish: 'Испански',
     bulgarian: 'Български',
+    french: 'Френски',
+    german: 'Немски',
     theme: 'Тема',
     crimsonNautica: 'Crimson Nautica',
     neonNautica: 'Neon Nautica',

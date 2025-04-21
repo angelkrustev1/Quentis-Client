@@ -31,6 +31,8 @@ export const englishTranslation = {
     english: 'English',
     spanish: 'Spanish',
     bulgarian: 'Bulgarian',
+    french: 'French',
+    german: 'German',
     theme: 'Theme',
     crimsonNautica: 'Crimson Nautica',
     neonNautica: 'Neon Nautica',

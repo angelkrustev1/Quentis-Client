@@ -72,6 +72,8 @@ export default function LanguageOptions() {
                 <MenuItem onClick={() => changeLanguageHandler('en')}>{translation.english}</MenuItem>
                 <MenuItem onClick={() => changeLanguageHandler('bg')}>{translation.bulgarian}</MenuItem>
                 <MenuItem onClick={() => changeLanguageHandler('es')}>{translation.spanish}</MenuItem>
+                <MenuItem onClick={() => changeLanguageHandler('fr')}>{translation.french}</MenuItem>
+                <MenuItem onClick={() => changeLanguageHandler('de')}>{translation.german}</MenuItem>
             </Menu>
         </div>
     );
