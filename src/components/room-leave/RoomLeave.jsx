@@ -7,15 +7,13 @@ import {
     Button,
     IconButton,
 } from '@mui/material';
-import SettingsIcon from '@mui/icons-material/Settings';
 import CloseIcon from '@mui/icons-material/Close';
-import ThemeOptions from './theme-options/ThemeOptions';
-import LanguageOptions from './language-options/LanguageOptions';
 import useTranslateText from '../../hooks/useTranslationText';
 import { CustomThemeContext } from '../../contexts/CustomThemeContext.';
 import { LanguageContext } from '../../contexts/LanguageContext';
+import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
 
-export default function Settings({
+export default function RoomLeave({
     onClose
 }) {
     const translation = useTranslateText();
@@ -69,11 +67,11 @@ export default function Settings({
                 </IconButton>
 
                 <Avatar sx={{ bgcolor: 'primary.main' }}>
-                    <SettingsIcon />
+                    <NoMeetingRoomIcon />
                 </Avatar>
 
                 <Typography variant="h5" component="h1" fontWeight={600}>
-                    {translation.settings}
+                    {translation.leave}
                 </Typography>
 
                 <Box
@@ -93,13 +91,24 @@ export default function Settings({
                             width: '100%',
                         }}
                     >
-                        <ThemeOptions />
-                        <LanguageOptions />
-                    </Box>
+                        <Button
+                            variant="contained"
+                            onClick={resetHandler}
+                            color="primary"
+                            sx={{ minWidth: '170px'}}
 
-                    <Button variant="contained" color="primary" onClick={resetHandler}>
-                        {translation.reset}
-                    </Button>
+                        >
+                            {translation.no}
+                        </Button>
+                        <Button
+                            variant="contained"
+                            onClick={resetHandler}
+                            color="primary"
+                            sx={{ minWidth: '170px'}}
+                        >
+                            {translation.yes}
+                        </Button>
+                    </Box>
                 </Box>
             </Paper>
         </Box>

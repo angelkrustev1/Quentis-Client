@@ -39,6 +39,7 @@ export default function LanguageOptions() {
                 onClick={handleClick}
                 sx={{
                     bgcolor: theme.palette.background.special,
+                    color: theme.palette.background.default,
                     fontSize: '0.9rem',
                     px: 4,
                     py: 0.4,

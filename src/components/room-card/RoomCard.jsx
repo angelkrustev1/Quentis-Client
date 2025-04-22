@@ -2,13 +2,21 @@ import { Box, Paper, Typography, Button, IconButton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CodeIcon from "@mui/icons-material/Code";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import useTranslateText from "../../hooks/useTranslationText";
+import { LanguageContext } from "../../contexts/LanguageContext";
+import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
+import RoomLeave from "../room-leave/RoomLeave";
 
 export default function RoomCard() {
     const [showCode, setShowCode] = useState(false);
     const [copied, setCopied] = useState(false)
     const translation = useTranslateText();
+    const { language } = useContext(LanguageContext)
+    const [showLeave, setShowLeave] = useState(false)
+
+    const leaveShowHandler = () => setShowLeave(true)
+    const leaveCloseHandler = () => setShowLeave(false)
 
     const showCodeHander = () => setShowCode(true)
     const closeCodeHander = () => setShowCode(false)
@@ -20,123 +28,136 @@ export default function RoomCard() {
     }
 
     return (
-        <Box
-            component={Paper}
-            elevation={8}
-            sx={{
-                width: 580,
-                height: 223,
-                display: "flex",
-                overflow: "hidden",
-                borderRadius: 2,
-                position: "relative",
-            }}
-        >
-            {/* Left - Image */}
+        <>
             <Box
+                component={Paper}
+                elevation={8}
                 sx={{
-                    width: "45%",
-                    height: "100%",
-                    backgroundImage: `url(${imageUrls.cat})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                }}
-            />
-
-            {/* Right - Content */}
-            <Box
-                sx={{
-                    width: "55%",
-                    height: "100%",
+                    width: 580,
+                    height: 223,
                     display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    p: 1,
+                    overflow: "hidden",
+                    borderRadius: 2,
                     position: "relative",
                 }}
             >
-                {/* Top Section */}
+                {/* Left - Image */}
                 <Box
                     sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
+                        width: "45%",
+                        height: "100%",
+                        backgroundImage: `url(${imageUrls.cat})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
                     }}
-                >
-                    <Typography
-                        variant="h6"
-                        sx={{ fontWeight: "bold", lineHeight: 1.2, fontSize: "1.25rem" }}
-                    >
-                        Room Title
-                    </Typography>
-                    <Box>
-                        <IconButton size="medium" color="primary">
-                            <EditIcon fontSize="medium" />
-                        </IconButton>
-                        <IconButton size="medium" color="error">
-                            <DeleteIcon fontSize="medium" />
-                        </IconButton>
-                    </Box>
-                </Box>
+                />
 
-                {/* Bottom Section */}
+                {/* Right - Content */}
                 <Box
                     sx={{
+                        width: "55%",
+                        height: "100%",
                         display: "flex",
+                        flexDirection: "column",
                         justifyContent: "space-between",
-                        alignItems: "flex-end",
-                        mt: "auto",
+                        p: 1,
                         position: "relative",
                     }}
                 >
-                    {/* Code Box */}
-                    {(showCode || copied) && (
-                        <Box
-                            sx={{
-                                position: "absolute",
-                                top: "-75px",
-                                left: "50%",
-                                transform: "translateX(-50%)",
-                                backgroundColor: "white",
-                                p: 1,
-                                borderRadius: 1,
-                                boxShadow: 5,
-                                maxWidth: 300,
-                                fontSize: "0.8rem",
-                                zIndex: 3,
-                            }}
-                        >
-                            <Typography variant="body2">
-                                {copied ? 'Copied' : 'cat-room'}
-                            </Typography>
-                        </Box>
-                    )}
-
-                    <IconButton
-                        size="medium"
-                        color="secondary"
-                        onClick={copieCodeHandler}
-                        onMouseEnter={showCodeHander}
-                        onMouseLeave={closeCodeHander}
-                    >
-                        <CodeIcon fontSize="medium" />
-                    </IconButton>
-
-                    <Button
-                        variant="contained"
-                        color="primary"
+                    {/* Top Section */}
+                    <Box
                         sx={{
-                            width: "90px",
-                            height: "30px",
-                            fontSize: "0.75rem",
-                            padding: "4px 12px",
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
                         }}
                     >
-                        {translation.join}
-                    </Button>
+                        <Typography
+                            variant="h6"
+                            sx={{ fontWeight: "bold", lineHeight: 1.2, fontSize: "1.25rem" }}
+                        >
+                            Room Title
+                        </Typography>
+                        <Box>
+                            {false
+                                ? (
+                                    <>
+                                        <IconButton size="medium" color="primary">
+                                            <EditIcon fontSize="medium" />
+                                        </IconButton>
+                                        <IconButton size="medium" color="error">
+                                            <DeleteIcon fontSize="medium" />
+                                        </IconButton>
+                                    </>
+                                ) : (
+                                    <IconButton size="medium" color="primary" onClick={leaveShowHandler}>
+                                        <NoMeetingRoomIcon />
+                                    </IconButton>
+                                )}
+
+                        </Box>
+                    </Box>
+
+                    {/* Bottom Section */}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "flex-end",
+                            mt: "auto",
+                            position: "relative",
+                        }}
+                    >
+                        {/* Code Box */}
+                        {(showCode || copied) && (
+                            <Box
+                                sx={{
+                                    position: "absolute",
+                                    top: "-75px",
+                                    left: "50%",
+                                    transform: "translateX(-50%)",
+                                    backgroundColor: "white",
+                                    p: 1,
+                                    borderRadius: 1,
+                                    boxShadow: 5,
+                                    maxWidth: 300,
+                                    fontSize: "0.8rem",
+                                    zIndex: 3,
+                                }}
+                            >
+                                <Typography variant="body2">
+                                    {copied ? 'Copiend' : 'cat-room'}
+                                </Typography>
+                            </Box>
+                        )}
+
+                        <IconButton
+                            size="medium"
+                            color="secondary"
+                            onClick={copieCodeHandler}
+                            onMouseEnter={showCodeHander}
+                            onMouseLeave={closeCodeHander}
+                        >
+                            <CodeIcon fontSize="medium" />
+                        </IconButton>
+
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            sx={{
+                                width: "90px",
+                                height: "30px",
+                                fontSize: `${language === 'en' ? '0.75rem' : '0.5rem'}`,
+                                padding: "4px 12px",
+                            }}
+                        >
+                            {translation.join}
+                        </Button>
+                    </Box>
                 </Box>
             </Box>
-        </Box>
+            {showLeave && <RoomLeave onClose={leaveCloseHandler} />}
+        </>
     );
 }
 
