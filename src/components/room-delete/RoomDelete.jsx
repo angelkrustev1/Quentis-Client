@@ -11,9 +11,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import useTranslateText from '../../hooks/useTranslationText';
 import { CustomThemeContext } from '../../contexts/CustomThemeContext.';
 import { LanguageContext } from '../../contexts/LanguageContext';
-import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
+import GroupOffIcon from '@mui/icons-material/GroupOff';
 
-export default function RoomLeave({
+export default function RoomDelete({
     onClose
 }) {
     const translation = useTranslateText();
@@ -67,11 +67,11 @@ export default function RoomLeave({
                 </IconButton>
 
                 <Avatar sx={{ bgcolor: 'primary.main' }}>
-                    <NoMeetingRoomIcon />
+                    <GroupOffIcon />
                 </Avatar>
 
                 <Typography variant="h5" component="h1" fontWeight={600}>
-                    {translation.leave}
+                    {translation.delete}
                 </Typography>
 
                 <Box

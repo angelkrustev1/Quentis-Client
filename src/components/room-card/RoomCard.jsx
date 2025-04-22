@@ -7,6 +7,7 @@ import useTranslateText from "../../hooks/useTranslationText";
 import { LanguageContext } from "../../contexts/LanguageContext";
 import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
 import RoomLeave from "../room-leave/RoomLeave";
+import RoomDelete from "../room-delete/RoomDelete";
 
 export default function RoomCard() {
     const [showCode, setShowCode] = useState(false);
@@ -14,9 +15,13 @@ export default function RoomCard() {
     const translation = useTranslateText();
     const { language } = useContext(LanguageContext)
     const [showLeave, setShowLeave] = useState(false)
+    const [showDelete, setShowDelete] = useState(false)
 
     const leaveShowHandler = () => setShowLeave(true)
     const leaveCloseHandler = () => setShowLeave(false)
+
+    const deleteShowHandler = () => setShowDelete(true)
+    const deleteCloseHandler = () => setShowDelete(false)
 
     const showCodeHander = () => setShowCode(true)
     const closeCodeHander = () => setShowCode(false)
@@ -79,13 +84,13 @@ export default function RoomCard() {
                             Room Title
                         </Typography>
                         <Box>
-                            {false
+                            {true
                                 ? (
                                     <>
                                         <IconButton size="medium" color="primary">
                                             <EditIcon fontSize="medium" />
                                         </IconButton>
-                                        <IconButton size="medium" color="error">
+                                        <IconButton size="medium" color="error" onClick={deleteShowHandler}>
                                             <DeleteIcon fontSize="medium" />
                                         </IconButton>
                                     </>
@@ -157,6 +162,7 @@ export default function RoomCard() {
                 </Box>
             </Box>
             {showLeave && <RoomLeave onClose={leaveCloseHandler} />}
+            {showDelete && <RoomDelete onClose={deleteCloseHandler} />}
         </>
     );
 }
