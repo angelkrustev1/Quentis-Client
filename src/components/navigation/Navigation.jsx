@@ -19,6 +19,8 @@ import SettingsForm from '../settings/Settings';
 import { EnterRoomContext } from '../../contexts/EnterRoomContext';
 import EnterRoom from '../enter-room/EnterRoom';
 import useTranslateText from '../../hooks/useTranslationText';
+import { AccountManageContext } from '../../contexts/AccountManageContext';
+import AccountManage from '../account-manage/AccountManage';
 
 
 export default function Navigation() {
@@ -28,6 +30,7 @@ export default function Navigation() {
     const { roomCreateOpen, roomCreateOpenHandler, roomCreateCloseHandler } = useContext(RoomCreateContext)
     const { settingsOpen, settingsOpenHandler, settingsCloseHandler } = useContext(SettignsContext)
     const { enterRoomOpen, enterRoomOpenHandler, enterRoomCloseHandler } = useContext(EnterRoomContext)
+    const { accountManageOpen, accountManageShowHandler, accountManageCloseHandler } = useContext(AccountManageContext)
 
     const roomsToggleHandler = () => {
         setRoomsOpen((prev) => !prev);
@@ -61,6 +64,7 @@ export default function Navigation() {
                             <AccountMenu
                                 enterRoomOpenHandler={enterRoomOpenHandler}
                                 roomCreateOpenHandler={roomCreateOpenHandler}
+                                accountManageOpenHandler={accountManageShowHandler}
                                 settingsOpenHandler={settingsOpenHandler}
                             />
                         ) : (
@@ -84,6 +88,7 @@ export default function Navigation() {
 
             {enterRoomOpen && <EnterRoom onClose={enterRoomCloseHandler} />}
             {roomCreateOpen && <RoomCreate onClose={roomCreateCloseHandler} />}
+            {accountManageOpen && <AccountManage onClose={accountManageCloseHandler} />}
             {settingsOpen && <SettingsForm onClose={settingsCloseHandler} />}
         </>
     );

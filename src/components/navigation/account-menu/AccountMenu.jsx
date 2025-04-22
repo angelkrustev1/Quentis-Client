@@ -17,10 +17,12 @@ import { Link } from 'react-router'
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import Settings from '@mui/icons-material/Settings';
 import useTranslateText from '../../../hooks/useTranslationText';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 export default function AccountMenu({
     enterRoomOpenHandler,
     roomCreateOpenHandler,
+    accountManageOpenHandler,
     settingsOpenHandler,
 }) {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -38,6 +40,11 @@ export default function AccountMenu({
 
     const roomCreateHandler = () => {
         roomCreateOpenHandler();
+        setAnchorEl(null);
+    }
+
+    const accountManageHandler = () => {
+        accountManageOpenHandler();
         setAnchorEl(null);
     }
 
@@ -124,6 +131,12 @@ export default function AccountMenu({
                         <GroupAddIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
                     </ListItemIcon>
                     {translate.accMenuLaunchRoom}
+                </MenuItem>
+                <MenuItem onClick={accountManageHandler} sx={{ color: theme.palette.text.primary }}>
+                    <ListItemIcon>
+                        <ManageAccountsIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
+                    </ListItemIcon>
+                    {translate.manageAccount}
                 </MenuItem>
                 <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>

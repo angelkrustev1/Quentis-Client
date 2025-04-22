@@ -12,6 +12,7 @@ import RoomCreateProvider from "./providers/RoomCreateProvider";
 import SettingsProvider from "./providers/SettingsProvider";
 import EnterRoomProvider from "./providers/EnterRoomProvider";
 import LanguageProvider from "./providers/LanguageProvider";
+import AccountManageProvider from "./providers/AccountManageProvider";
 
 function App() {
 	const theme = useTheme();
@@ -24,11 +25,13 @@ function App() {
 				bgcolor: theme.palette.background.default || '#fff',
 			}}>
 				<SettingsProvider>
-					<EnterRoomProvider>
-						<RoomCreateProvider>
-							<Navigation />
-						</RoomCreateProvider>
-					</EnterRoomProvider>
+					<AccountManageProvider>
+						<EnterRoomProvider>
+							<RoomCreateProvider>
+								<Navigation />
+							</RoomCreateProvider>
+						</EnterRoomProvider>
+					</AccountManageProvider>
 				</SettingsProvider>
 				<Container
 					maxWidth="lg"
