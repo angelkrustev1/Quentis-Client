@@ -8,11 +8,8 @@ import { Routes, Route } from 'react-router'
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import RoomsPage from "./components/rooms-page/RoomsPage";
-import RoomCreateProvider from "./providers/RoomCreateProvider";
-import SettingsProvider from "./providers/SettingsProvider";
-import EnterRoomProvider from "./providers/EnterRoomProvider";
 import LanguageProvider from "./providers/LanguageProvider";
-import AccountManageProvider from "./providers/AccountManageProvider";
+import AccountMenuProvider from "./providers/AccountMenuProvider";
 
 function App() {
 	const theme = useTheme();
@@ -24,15 +21,9 @@ function App() {
 				minHeight: '100vh',
 				bgcolor: theme.palette.background.default || '#fff',
 			}}>
-				<SettingsProvider>
-					<AccountManageProvider>
-						<EnterRoomProvider>
-							<RoomCreateProvider>
-								<Navigation />
-							</RoomCreateProvider>
-						</EnterRoomProvider>
-					</AccountManageProvider>
-				</SettingsProvider>
+				<AccountMenuProvider>
+					<Navigation />
+				</AccountMenuProvider>
 				<Container
 					maxWidth="lg"
 					sx={{ flex: 1 }}
