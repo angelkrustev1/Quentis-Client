@@ -8,14 +8,16 @@ import { LanguageContext } from "../../contexts/LanguageContext";
 import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
 import RoomLeave from "../room-leave/RoomLeave";
 import RoomDelete from "../room-delete/RoomDelete";
+import RoomUpdate from "../room-update/RoomUpdata";
 
 export default function RoomCard() {
     const [showCode, setShowCode] = useState(false);
     const [copied, setCopied] = useState(false)
     const translation = useTranslateText();
-    const { language } = useContext(LanguageContext)
-    const [showLeave, setShowLeave] = useState(false)
-    const [showDelete, setShowDelete] = useState(false)
+    const { language } = useContext(LanguageContext);
+    const [showLeave, setShowLeave] = useState(false);
+    const [showDelete, setShowDelete] = useState(false);
+    const [showEdit, setShowEdit] = useState(false);
 
     const leaveShowHandler = () => setShowLeave(true)
     const leaveCloseHandler = () => setShowLeave(false)
@@ -23,8 +25,11 @@ export default function RoomCard() {
     const deleteShowHandler = () => setShowDelete(true)
     const deleteCloseHandler = () => setShowDelete(false)
 
-    const showCodeHander = () => setShowCode(true)
-    const closeCodeHander = () => setShowCode(false)
+    const codeShowHandler = () => setShowCode(true)
+    const codeCloseHandler = () => setShowCode(false)
+
+    const editShowHandler = () => setShowEdit(true)
+    const editCloseHanlder = () => setShowEdit(false)
 
     const copieCodeHandler = () => {
         navigator.clipboard.writeText('cat-room')
@@ -87,7 +92,7 @@ export default function RoomCard() {
                             {true
                                 ? (
                                     <>
-                                        <IconButton size="medium" color="primary">
+                                        <IconButton size="medium" color="primary" onClick={editShowHandler}>
                                             <EditIcon fontSize="medium" />
                                         </IconButton>
                                         <IconButton size="medium" color="error" onClick={deleteShowHandler}>
@@ -140,8 +145,8 @@ export default function RoomCard() {
                             size="medium"
                             color="secondary"
                             onClick={copieCodeHandler}
-                            onMouseEnter={showCodeHander}
-                            onMouseLeave={closeCodeHander}
+                            onMouseEnter={codeShowHandler}
+                            onMouseLeave={codeCloseHandler}
                         >
                             <CodeIcon fontSize="medium" />
                         </IconButton>
@@ -163,6 +168,7 @@ export default function RoomCard() {
             </Box>
             {showLeave && <RoomLeave onClose={leaveCloseHandler} />}
             {showDelete && <RoomDelete onClose={deleteCloseHandler} />}
+            {showEdit && <RoomUpdate onClose={editCloseHanlder} />}
         </>
     );
 }

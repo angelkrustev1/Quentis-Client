@@ -1,6 +1,8 @@
 export const germanTranslation = {
     join: 'Beitreten',
     create: 'Erstellen',
+    update: 'Aktualisieren',
+    editRoom: 'Raum bearbeiten',
     reset: 'Zurücksetzen',
     profile: 'Profil',
     login: 'Anmelden',

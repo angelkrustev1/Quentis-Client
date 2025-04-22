@@ -1,6 +1,8 @@
 export const spanishTranslation = {
     join: 'Unirse',
     create: 'Crear',
+    update: 'Actualizar',
+    editRoom: 'Editar sala',
     reset: 'Restablecer',
     profile: 'Perfil',
     login: 'Iniciar sesión',

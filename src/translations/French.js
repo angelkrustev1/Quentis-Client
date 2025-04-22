@@ -1,6 +1,8 @@
 export const frenchTranslation = {
     join: 'Rejoindre',
     create: 'Créer',
+    update: 'Actualiser',
+    editRoom: 'Modifier la salle',
     reset: 'Réinitialiser',
     profile: 'Profil',
     login: 'Connexion',

@@ -1,6 +1,8 @@
 export const englishTranslation = {
     join: 'Join',
     create: 'Create',
+    update: 'Update',
+    editRoom: 'Edit Room',
     reset: 'Reset',
     profile: 'Profile',
     login: 'Login',

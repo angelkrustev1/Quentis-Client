@@ -2,6 +2,8 @@ export const bulgarianTranslation = {
     join: 'Присъедини се',
     create: 'Създай',
     reset: 'Нулирай',
+    update: 'Актуализирай',
+    editRoom: 'Редактиране на стая',
     profile: 'Профил',
     login: 'Вход',
     leave: 'Сигурен ли си?',
