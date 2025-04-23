@@ -22,6 +22,7 @@ export const spanishTranslation = {
     settings: 'Configuraciones',
     enterRoom: 'Entrar a la sala',
     launchRoom: 'Iniciar sala',
+    ownedRooms: 'Salas Propias',
     footer: 'Quentis. Todos los derechos reservados.',
     account: 'Cuenta',
     noAccount: ' ¿No tienes una cuenta?',

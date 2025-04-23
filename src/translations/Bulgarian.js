@@ -22,6 +22,7 @@ export const bulgarianTranslation = {
     settings: 'Настройки',
     enterRoom: 'Влез в стаята',
     launchRoom: 'Стартирай стая',
+    ownedRooms: 'Притежавани стаи',
     footer: 'Quentis. Всички права запазени.',
     account: 'Акаунт',
     noAccount: 'Нямате акаунт?',

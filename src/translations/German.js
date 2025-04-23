@@ -22,6 +22,7 @@ export const germanTranslation = {
     settings: 'Einstellungen',
     enterRoom: 'Raum betreten',
     launchRoom: 'Raum starten',
+    ownedRooms: 'Eigene Räume',
     footer: 'Quentis. Alle Rechte vorbehalten.',
     account: 'Konto',
     noAccount: 'Hast du kein Konto?',

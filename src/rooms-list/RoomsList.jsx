@@ -16,6 +16,7 @@ import useRoomUpdate from '../components/room-update/useRoomUpdate';
 import useRoomDelete from '../components/room-delete/useRoomDelete';
 import RoomDelete from '../components/room-delete/RoomDelete';
 import RoomUpdate from '../components/room-update/RoomUpdata';
+import useTranslateText from '../hooks/useTranslationText';
 
 const Demo = styled('div')(({ theme }) => ({
     backgroundColor: (theme.vars || theme).palette.background.paper,
@@ -30,6 +31,7 @@ function generate(element) {
 }
 
 export default function RoomsList() {
+    const translation = useTranslateText();
     const { showEdit, editShowHandler, editCloseHanlder } = useRoomUpdate();
     const { showDelete, deleteShowHandler, deleteCloseHandler } = useRoomDelete();
 
@@ -45,7 +47,7 @@ export default function RoomsList() {
                 }}
             >
                 <Typography variant="h6" component="div" sx={{ whiteSpace: 'nowrap', fontSize: "1.75rem" }}>
-                    Owned Rooms
+                    {translation.ownedRooms}
                 </Typography>
                 <Search />
             </Box>

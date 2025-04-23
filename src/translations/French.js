@@ -22,6 +22,7 @@ export const frenchTranslation = {
     settings: 'Paramètres',
     enterRoom: 'Entrer dans la salle',
     launchRoom: 'Lancer la salle',
+    ownedRooms: 'Salles Possédées',
     footer: 'Quentis. Tous droits réservés.',
     account: 'Compte',
     noAccount: "Vous n’avez pas de compte ?",

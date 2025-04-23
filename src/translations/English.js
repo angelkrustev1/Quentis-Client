@@ -22,6 +22,7 @@ export const englishTranslation = {
     settings: 'Settings',
     enterRoom: 'Enter Room',
     launchRoom: 'Launch Room',
+    ownedRooms: 'Owned Rooms',
     footer: 'Quentis. All Rights Reserved.',
     account: 'Account',
     noAccount: "Don't have an account?",
