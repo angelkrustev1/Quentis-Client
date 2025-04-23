@@ -10,9 +10,11 @@ import Register from "./components/register/Register";
 import RoomsPage from "./components/rooms-page/RoomsPage";
 import LanguageProvider from "./providers/LanguageProvider";
 import AccountMenuProvider from "./providers/AccountMenuProvider";
+import Profile from "./components/profile/Profile";
 
 function App() {
 	const theme = useTheme();
+
 	return (
 		<LanguageProvider>
 			<Box sx={{
@@ -32,6 +34,7 @@ function App() {
 						<Route index element={<Home />} />
 						<Route path='/login' element={<Login />} />
 						<Route path='/register' element={<Register />} />
+						<Route path='/profile' element={<AccountMenuProvider><Profile /></AccountMenuProvider>} />
 						<Route path='/rooms' element={<RoomsPage />} />
 					</Routes>
 				</Container>

@@ -15,7 +15,7 @@ import RoomCreate from '../room-create/RoomCreate';
 import { RoomCreateContext } from '../../contexts/RoomCreateContext';
 import { useTheme } from '@mui/material/styles';
 import { SettignsContext } from '../../contexts/SettingsContext';
-import SettingsForm from '../settings/Settings';
+import Settings from '../settings/Settings';
 import { EnterRoomContext } from '../../contexts/EnterRoomContext';
 import EnterRoom from '../enter-room/EnterRoom';
 import useTranslateText from '../../hooks/useTranslationText';
@@ -89,7 +89,7 @@ export default function Navigation() {
             {enterRoomOpen && <EnterRoom onClose={enterRoomCloseHandler} />}
             {roomCreateOpen && <RoomCreate onClose={roomCreateCloseHandler} />}
             {accountManageOpen && <AccountManage onClose={accountManageCloseHandler} />}
-            {settingsOpen && <SettingsForm onClose={settingsCloseHandler} />}
+            {settingsOpen && <Settings onClose={settingsCloseHandler} />}
         </>
     );
 }

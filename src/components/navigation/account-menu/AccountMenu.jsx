@@ -10,7 +10,6 @@ import {
     Tooltip,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import LogoutIcon from '@mui/icons-material/Logout';
 import GroupAddIcon from '@mui/icons-material/GroupAdd';
 import { Link } from 'react-router'
@@ -115,10 +114,12 @@ export default function AccountMenu({
                     },
                 }}
             >
-                <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
-                    <Avatar sx={{ bgcolor: theme.palette.text.special }} />
-                    {translate.profile}
-                </MenuItem>
+                <Link to='/profile'>
+                    <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
+                        <Avatar sx={{ bgcolor: theme.palette.text.special }} />
+                        {translate.profile}
+                    </MenuItem>
+                </Link>
                 <Divider />
                 <MenuItem onClick={roomOpenHandler} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>
@@ -138,14 +139,6 @@ export default function AccountMenu({
                     </ListItemIcon>
                     {translate.manageAccount}
                 </MenuItem>
-                <Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>
-                    <MenuItem onClick={handleClose} sx={{ color: theme.palette.text.primary }}>
-                        <ListItemIcon>
-                            <PersonAddIcon fontSize="small" sx={{ color: theme.palette.text.primary }} />
-                        </ListItemIcon>
-                        {translate.accMenuAddAnotherAccount}
-                    </MenuItem>
-                </Link>
                 <Divider />
                 <MenuItem onClick={settingsHandler} sx={{ color: theme.palette.text.primary }}>
                     <ListItemIcon>

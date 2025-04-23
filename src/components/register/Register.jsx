@@ -51,7 +51,7 @@ export default function Register() {
             </Box>
 
             <Typography variant="body2" sx={{ mt: 2 }}>
-                Already have an account?{' '}
+                {translation.haveAccount}{' '}
                 <Link href="/login" underline="hover">
                     {translation.signInHere}
                 </Link>

@@ -9,6 +9,8 @@ import NoMeetingRoomIcon from '@mui/icons-material/NoMeetingRoom';
 import RoomLeave from "../room-leave/RoomLeave";
 import RoomDelete from "../room-delete/RoomDelete";
 import RoomUpdate from "../room-update/RoomUpdata";
+import useRoomUpdate from "../room-update/useRoomUpdate";
+import useRoomDelete from "../room-delete/useRoomDelete";
 
 export default function RoomCard() {
     const [showCode, setShowCode] = useState(false);
@@ -16,20 +18,14 @@ export default function RoomCard() {
     const translation = useTranslateText();
     const { language } = useContext(LanguageContext);
     const [showLeave, setShowLeave] = useState(false);
-    const [showDelete, setShowDelete] = useState(false);
-    const [showEdit, setShowEdit] = useState(false);
+    const { showEdit, editShowHandler, editCloseHanlder } = useRoomUpdate();
+    const { showDelete, deleteShowHandler, deleteCloseHandler } = useRoomDelete();
 
     const leaveShowHandler = () => setShowLeave(true)
     const leaveCloseHandler = () => setShowLeave(false)
 
-    const deleteShowHandler = () => setShowDelete(true)
-    const deleteCloseHandler = () => setShowDelete(false)
-
     const codeShowHandler = () => setShowCode(true)
     const codeCloseHandler = () => setShowCode(false)
-
-    const editShowHandler = () => setShowEdit(true)
-    const editCloseHanlder = () => setShowEdit(false)
 
     const copieCodeHandler = () => {
         navigator.clipboard.writeText('cat-room')

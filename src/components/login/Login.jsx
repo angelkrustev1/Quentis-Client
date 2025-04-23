@@ -44,7 +44,7 @@ export default function LoginForm() {
             </Box>
 
             <Typography variant="body2" sx={{ mt: 2 }}>
-                Don't have an account?{' '}
+                {translation.noAccount}{' '}
                 <Link href="/register" underline="hover">
                     {translation.signUpHere}
                 </Link>
