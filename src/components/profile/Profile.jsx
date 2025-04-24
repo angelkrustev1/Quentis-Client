@@ -18,7 +18,7 @@ import Settings from "../settings/Settings";
 import RoomCreate from "../room-create/RoomCreate";
 import EnterRoom from "../enter-room/EnterRoom";
 import PictureChange from "../change-profile-picture/ChangeProfilePicture";
-import RoomsList from "../../rooms-list/RoomsList";
+import RoomsList from "../rooms-list/RoomsList";
 // import RoomsColection from "../rooms-colection/RoomsColection"; // Uncomment when needed
 
 export default function Profile() {

@@ -11,12 +11,12 @@ import Typography from '@mui/material/Typography';
 import FolderIcon from '@mui/icons-material/Folder';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import Search from '../components/search/Search';
-import useRoomUpdate from '../components/room-update/useRoomUpdate';
-import useRoomDelete from '../components/room-delete/useRoomDelete';
-import RoomDelete from '../components/room-delete/RoomDelete';
-import RoomUpdate from '../components/room-update/RoomUpdata';
-import useTranslateText from '../hooks/useTranslationText';
+import Search from '../search/Search';
+import useRoomUpdate from '../room-update/useRoomUpdate';
+import useRoomDelete from '../room-delete/useRoomDelete';
+import RoomDelete from '../room-delete/RoomDelete';
+import RoomUpdate from '../room-update/RoomUpdata';
+import useTranslateText from '../../hooks/useTranslationText';
 
 const Demo = styled('div')(({ theme }) => ({
     backgroundColor: (theme.vars || theme).palette.background.paper,

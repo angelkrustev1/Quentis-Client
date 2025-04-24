@@ -11,6 +11,7 @@ import RoomsPage from "./components/rooms-page/RoomsPage";
 import LanguageProvider from "./providers/LanguageProvider";
 import AccountMenuProvider from "./providers/AccountMenuProvider";
 import Profile from "./components/profile/Profile";
+import Meeting from "./components/meeting/Meeting";
 
 function App() {
 	const theme = useTheme();
@@ -36,6 +37,7 @@ function App() {
 						<Route path='/register' element={<Register />} />
 						<Route path='/profile' element={<AccountMenuProvider><Profile /></AccountMenuProvider>} />
 						<Route path='/rooms' element={<RoomsPage />} />
+						<Route path='/meeting' element={<Meeting />} />
 					</Routes>
 				</Container>
 				<Footer />

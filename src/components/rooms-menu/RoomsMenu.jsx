@@ -43,7 +43,7 @@ export default function RoomsMenu({
                                     sx={{ color: theme.palette.text.primary }}
                                 />
                             </ListItemIcon>
-                            <ListItemText primary={translation.roomsMenuClose}/>
+                            <ListItemText primary={translation.roomsMenuClose} />
                         </ListItemButton>
                     </ListItem>
                     <ListItem disablePadding>
@@ -57,15 +57,17 @@ export default function RoomsMenu({
                 </List>
                 <Divider />
                 <List>
-                    {['All mail', 'Trash', 'Spam'].map((text) => (
-                        <ListItem key={text} disablePadding>
-                            <ListItemButton>
-                                <ListItemIcon>
-                                    <ChatBubbleOutlineIcon sx={{ color: theme.palette.text.primary }} />
-                                </ListItemIcon>
-                                <ListItemText primary={text} />
-                            </ListItemButton>
-                        </ListItem>
+                    {['All mail'].map((text) => (
+                        <Link to='/meeting'>
+                            <ListItem key={text} disablePadding>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        <ChatBubbleOutlineIcon sx={{ color: theme.palette.text.primary }} />
+                                    </ListItemIcon>
+                                    <ListItemText primary={text} />
+                                </ListItemButton>
+                            </ListItem>
+                        </Link>
                     ))}
                 </List>
             </Box>
