@@ -47,6 +47,7 @@ export default function Home() {
                     overflow: "hidden",
                     display: "inline-block",
                     textShadow: "1px 1px 3px rgba(0, 0, 0, 0.3)",
+                    mb: 4,
                 }}
             >
                 {translation.homeSubTitlePartOne}<br />
