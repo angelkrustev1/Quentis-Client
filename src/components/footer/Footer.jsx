@@ -15,7 +15,6 @@ export default function Footer() {
         color: theme.palette.text.secondary,
         py: 2,
         textAlign: 'center',
-        mt: 4,
         boxShadow: 3,
       }}
     >

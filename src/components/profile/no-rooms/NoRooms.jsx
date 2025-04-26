@@ -18,6 +18,7 @@ export default function NoRooms() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                mx: "auto",
                 color: theme.palette.text.secondary,
             }}
         >

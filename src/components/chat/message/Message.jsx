@@ -80,8 +80,8 @@ export default function Message({
 
             {/* Like button */}
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', mt: 3 }}>
-              <IconButton size="medium" color="primary">
-                <ThumbUpAltOutlinedIcon fontSize="medium" />
+              <IconButton size="small" color="primary">
+                <ThumbUpAltOutlinedIcon fontSize="small" />
               </IconButton>
               <Typography variant="body2" sx={{ ml: 0.5 }}>
                 12

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react'; // <-- Add useState
+
 import {
   FormControl,
   InputLabel,
@@ -9,11 +10,13 @@ import {
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
-import ThumbDownAltOutlinedIcon from '@mui/icons-material/ThumbDownAltOutlined';
 
 export default function MessagesOrder({ value, onChange }) {
+  const [internalValue, setInternalValue] = useState('newest');
+
   const handleChange = (event) => {
-    onChange(event.target.value);
+    setInternalValue(event.target.value);
+    onChange?.(event.target.value); // only call onChange if it's passed
   };
 
   return (
@@ -31,7 +34,7 @@ export default function MessagesOrder({ value, onChange }) {
         <Select
           labelId="order-label"
           id="order-select"
-          value={value}
+          value={value ?? internalValue} // fallback to internalValue if value is undefined
           label="Order By"
           onChange={handleChange}
           sx={{ borderRadius: 2 }}

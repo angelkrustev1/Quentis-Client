@@ -31,7 +31,7 @@ export default function ThemeOptions() {
 
     const chooseThemeHandler = (theme) => {
         setAnchorEl(null);
-        changeCustomThemeHandler(theme) // this here 
+        changeCustomThemeHandler(theme)
     }
 
     return (
