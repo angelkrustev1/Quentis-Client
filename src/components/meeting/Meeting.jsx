@@ -9,33 +9,30 @@ import Typography from '@mui/material/Typography';
 import { Divider, Paper } from '@mui/material';
 import MessagesOrder from '../messages-order/MessagesOrder';
 import Chat from '../chat/Chat';
-import MessageForm from '../chat/message-form/MessageForm';
 import PollIcon from '@mui/icons-material/Poll';
-import PollCreate from '../chat/poll-create/PollCreate';
+import Polls from '../polls/Polls';
 
 export default function Meeting() {
   const [value, setValue] = useState(0);
-  const [messagesOpen, setMessagesOpen] = useState(true)
-  const [historyOpen, setHistoryOpen] = useState(false)
-  const [pollsOpen, setPollsOpen] = useState(false)
+  const [messagesOpen, setMessagesOpen] = useState(true);
+  const [historyOpen, setHistoryOpen] = useState(false);
+  const [pollsOpen, setPollsOpen] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    
-    if(newValue === 0) {
-      setMessagesOpen(true)
-      setHistoryOpen(false)
-      setPollsOpen(false)
-    }
-    else if(newValue === 1) {
-      setMessagesOpen(false)
-      setPollsOpen(true)
-      setHistoryOpen(false)
-    }
-    else if(newValue === 2) {
-      setMessagesOpen(false)
-      setPollsOpen(false)
-      setHistoryOpen(true)
+
+    if (newValue === 0) {
+      setMessagesOpen(true);
+      setHistoryOpen(false);
+      setPollsOpen(false);
+    } else if (newValue === 1) {
+      setMessagesOpen(false);
+      setPollsOpen(true);
+      setHistoryOpen(false);
+    } else if (newValue === 2) {
+      setMessagesOpen(false);
+      setPollsOpen(false);
+      setHistoryOpen(true);
     }
   };
 
@@ -52,10 +49,12 @@ export default function Meeting() {
         flexDirection: 'column',
       }}
     >
+      {/* Tabs */}
       <Tabs
-      value={value}
-      onChange={handleChange}
-      centered
+        value={value}
+        onChange={handleChange}
+        centered
+        sx={{ flexShrink: 0 }}
       >
         <Tab
           label={
@@ -82,7 +81,10 @@ export default function Meeting() {
           }
         />
       </Tabs>
-      <Divider />
+
+      <Divider sx={{ flexShrink: 0 }} />
+
+      {/* Header */}
       <Box
         sx={{
           display: 'flex',
@@ -90,20 +92,26 @@ export default function Meeting() {
           alignItems: 'center',
           justifyContent: 'space-between',
           py: 4,
+          flexShrink: 0,
         }}
       >
-        <Typography variant='h6'>Room Name</Typography>
+        <Typography variant="h6">Room Name</Typography>
         <MessagesOrder />
       </Box>
 
-      {/* Chat should grow */}
-      <Box sx={{ flexGrow: 1, overflow: 'auto' }}>
-        <Chat messagesOpen={messagesOpen} historyOpen={historyOpen} pollsOpen={pollsOpen} />
+      {/* Chat area */}
+      <Box
+        sx={{
+          flexGrow: 1,
+          minHeight: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          overflow: 'hidden',
+        }}
+      >
+        {messagesOpen && <Chat messagesOpen={messagesOpen} historyOpen={historyOpen} />}
+        {pollsOpen && <Polls />}
       </Box>
-
-      {messagesOpen && <MessageForm />}
-      {pollsOpen && <PollCreate />}
     </Box>
   );
 }
-

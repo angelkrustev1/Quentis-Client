@@ -1,30 +1,38 @@
 import List from '@mui/material/List';
 import Box from '@mui/material/Box';
-import Message from './message/Message';
 import { useState } from 'react';
-import Poll from './poll/Poll';
+import MessageForm from './message-form/MessageForm';
 
-export default function Chat({
-  messagesOpen,
-  historyOpen,
-  pollsOpen,
-}) {
-  const [kickOpen, setKickOpen] = useState(false)
-  const kickOpenHandler = () => setKickOpen(true)
-  const kickCloseHandler = () => setKickOpen(false)
+export default function Chat({ messagesOpen, historyOpen }) {
+  const [kickOpen, setKickOpen] = useState(false);
+  const kickOpenHandler = () => setKickOpen(true);
+  const kickCloseHandler = () => setKickOpen(false);
 
   return (
-    <>
-      <Box sx={{ width: '100%' }}>
-        <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-          {messagesOpen && 
-            <Message open={kickOpen} onOpen={kickOpenHandler} onClose={kickCloseHandler} />
-          }
-          {pollsOpen &&
-            <Poll />
-          }
-        </List>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        flexGrow: 1,
+        minHeight: 0,  // critical for flex + scroll
+      }}
+    >
+      {/* Scrollable messages */}
+      <List
+        sx={{
+          flexGrow: 1,
+          overflowY: 'auto',
+          width: '100%',
+          bgcolor: 'background.paper',
+        }}
+      >
+        {/* Messages */}
+      </List>
+
+      {/* Message form always pinned to bottom */}
+      <Box sx={{}}>
+        <MessageForm />
       </Box>
-    </>
+    </Box>
   );
 }
