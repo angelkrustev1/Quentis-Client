@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Box, TextField, IconButton, Paper } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import useTranslateText from "../../../hooks/useTranslationText";
 
 const MessageForm = ({ onSend }) => {
     const [message, setMessage] = useState("");
+    const translation = useTranslateText();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -36,7 +38,7 @@ const MessageForm = ({ onSend }) => {
                     <TextField
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
-                        placeholder="Type your message..."
+                        placeholder={translation.typeMessage}
                         variant="outlined"
                         fullWidth
                         size="small"

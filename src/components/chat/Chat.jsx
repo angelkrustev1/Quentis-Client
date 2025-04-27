@@ -2,6 +2,7 @@ import List from '@mui/material/List';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
 import MessageForm from './message-form/MessageForm';
+import Message from './message/Message';
 
 export default function Chat({ messagesOpen, historyOpen }) {
   const [kickOpen, setKickOpen] = useState(false);
@@ -26,7 +27,7 @@ export default function Chat({ messagesOpen, historyOpen }) {
           bgcolor: 'background.paper',
         }}
       >
-        {/* Messages */}
+        <Message />
       </List>
 
       {/* Message form always pinned to bottom */}

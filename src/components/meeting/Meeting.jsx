@@ -11,12 +11,14 @@ import MessagesOrder from '../messages-order/MessagesOrder';
 import Chat from '../chat/Chat';
 import PollIcon from '@mui/icons-material/Poll';
 import Polls from '../polls/Polls';
+import useTranslateText from '../../hooks/useTranslationText';
 
 export default function Meeting() {
   const [value, setValue] = useState(0);
   const [messagesOpen, setMessagesOpen] = useState(true);
   const [historyOpen, setHistoryOpen] = useState(false);
   const [pollsOpen, setPollsOpen] = useState(false);
+  const translation = useTranslateText();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -60,7 +62,7 @@ export default function Meeting() {
           label={
             <Stack direction="row" alignItems="center" spacing={1}>
               <QuestionAnswerIcon fontSize="small" color="primary" />
-              <Typography>Q&A</Typography>
+              <Typography>{translation.questions}</Typography>
             </Stack>
           }
         />
@@ -68,7 +70,7 @@ export default function Meeting() {
           label={
             <Stack direction="row" alignItems="center" spacing={1}>
               <PollIcon fontSize="small" color="primary" />
-              <Typography>Polls</Typography>
+              <Typography>{translation.polls}</Typography>
             </Stack>
           }
         />
@@ -76,7 +78,7 @@ export default function Meeting() {
           label={
             <Stack direction="row" alignItems="center" spacing={1}>
               <HistoryIcon fontSize="small" color="primary" />
-              <Typography>History</Typography>
+              <Typography>{translation.history}</Typography>
             </Stack>
           }
         />

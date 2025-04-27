@@ -34,7 +34,7 @@ export default function Polls() {
                         overflowY: 'auto',
                     }}
                 >
-                    {/* <Poll /> */}
+                    <Poll />
                 </List>
             </Box>
 

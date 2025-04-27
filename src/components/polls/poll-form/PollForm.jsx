@@ -12,11 +12,10 @@ import CloseIcon from "@mui/icons-material/Close";
 import useTranslateText from "../../../hooks/useTranslationText";
 import { useState } from "react";
 
-export default function RoomCreate({
+export default function PollForm({
     onClose,
 }) {
     const MIN_OPTIONS = 2;
-
     const translation = useTranslateText();
     const [options, setOptions] = useState(MIN_OPTIONS)
 
@@ -78,7 +77,7 @@ export default function RoomCreate({
                     <Avatar sx={{ bgcolor: "primary.main" }}>
                         <GroupAddIcon />
                     </Avatar>
-                    <Typography variant="h5">Create Poll</Typography>
+                    <Typography variant="h5">{translation.createPoll}</Typography>
 
                     <Box
                         component="form"
@@ -90,16 +89,16 @@ export default function RoomCreate({
                         }}
                     >
                         <TextField
-                            label="Question"
+                            label={translation.question}
                             variant="outlined"
                             fullWidth
                             required
                         />
-                        <Typography variant="h6">Options:</Typography>
+                        <Typography variant="h6">{translation.options}:</Typography>
 
                         {[...Array(options)].map((_, index) =>
                             <TextField
-                                label={`Option ${index}`}
+                                label={`${translation.option} ${index}`}
                                 variant="outlined"
                                 fullWidth
                                 required
@@ -125,7 +124,7 @@ export default function RoomCreate({
                                     },
                                 }}
                             >
-                                Add
+                                {translation.add}
                             </Button>
                             <Button
                                 variant="contained"
@@ -139,7 +138,7 @@ export default function RoomCreate({
                                     },
                                 }}
                             >
-                                Remove
+                                {translation.remove}
                             </Button>
                         </Box>
 
@@ -149,7 +148,7 @@ export default function RoomCreate({
                             color="primary"
                             fullWidth
                         >
-                            Upload
+                            {translation.upload}
                         </Button>
                     </Box>
                 </Paper>

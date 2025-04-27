@@ -10,9 +10,11 @@ import {
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
+import useTranslateText from '../../hooks/useTranslationText';
 
 export default function MessagesOrder({ value, onChange }) {
   const [internalValue, setInternalValue] = useState('newest');
+  const translation = useTranslateText();
 
   const handleChange = (event) => {
     setInternalValue(event.target.value);
@@ -30,26 +32,26 @@ export default function MessagesOrder({ value, onChange }) {
           boxShadow: 1,
         }}
       >
-        <InputLabel id="order-label">Order By</InputLabel>
+        <InputLabel id="order-label">{translation.orderBy}</InputLabel>
         <Select
           labelId="order-label"
           id="order-select"
           value={value ?? internalValue} // fallback to internalValue if value is undefined
-          label="Order By"
+          label={translation.orderBy}
           onChange={handleChange}
           sx={{ borderRadius: 2 }}
         >
           <MenuItem value="newest">
             <ArrowDownwardIcon fontSize="small" sx={{ mr: 1 }} />
-            Newest
+            {translation.newest}
           </MenuItem>
           <MenuItem value="oldest">
             <ArrowUpwardIcon fontSize="small" sx={{ mr: 1 }} />
-            Oldest
+            {translation.oldest}
           </MenuItem>
           <MenuItem value="most_liked">
             <ThumbUpAltOutlinedIcon fontSize="small" sx={{ mr: 1 }} />
-            Most Liked
+            {translation.mostLiked}
           </MenuItem>
         </Select>
       </FormControl>
